@@ -14,6 +14,13 @@
 		3F75258923590B8D009A5E91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F75258723590B8D009A5E91 /* LaunchScreen.storyboard */; };
 		3F75259123590D95009A5E91 /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F75259023590D95009A5E91 /* Info.storyboard */; };
 		3F75259323591012009A5E91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75259223591012009A5E91 /* ProfileViewController.swift */; };
+		3FADA419235CBC970074B095 /* filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FADA418235CBC970074B095 /* filter.png */; };
+		3FADA41B235CBD440074B095 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FADA41A235CBD430074B095 /* search.png */; };
+		3FADA41D235CBDFC0074B095 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FADA41C235CBDFC0074B095 /* help.png */; };
+		3FADA421235CF63E0074B095 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADA420235CF63E0074B095 /* CustomAnnotation.swift */; };
+		3FADA423235D02C10074B095 /* Bike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADA422235D02C10074B095 /* Bike.swift */; };
+		3FADA427235D06380074B095 /* Fietshare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADA426235D06380074B095 /* Fietshare.swift */; };
+		3FADA429235D2A890074B095 /* Stand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADA428235D2A890074B095 /* Stand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +33,13 @@
 		3F75258A23590B8D009A5E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F75259023590D95009A5E91 /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		3F75259223591012009A5E91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3FADA418235CBC970074B095 /* filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = filter.png; path = ../../../../../filter.png; sourceTree = "<group>"; };
+		3FADA41A235CBD430074B095 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search.png; path = ../../../../../search.png; sourceTree = "<group>"; };
+		3FADA41C235CBDFC0074B095 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = help.png; path = ../../../../../help.png; sourceTree = "<group>"; };
+		3FADA420235CF63E0074B095 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		3FADA422235D02C10074B095 /* Bike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bike.swift; sourceTree = "<group>"; };
+		3FADA426235D06380074B095 /* Fietshare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fietshare.swift; sourceTree = "<group>"; };
+		3FADA428235D2A890074B095 /* Stand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +78,15 @@
 				3F75258023590B8C009A5E91 /* ViewController.swift */,
 				3F75258223590B8C009A5E91 /* Main.storyboard */,
 				3F75258523590B8D009A5E91 /* Assets.xcassets */,
+				3FADA41C235CBDFC0074B095 /* help.png */,
+				3FADA41A235CBD430074B095 /* search.png */,
+				3FADA418235CBC970074B095 /* filter.png */,
 				3F75258723590B8D009A5E91 /* LaunchScreen.storyboard */,
 				3F75258A23590B8D009A5E91 /* Info.plist */,
+				3FADA420235CF63E0074B095 /* CustomAnnotation.swift */,
+				3FADA422235D02C10074B095 /* Bike.swift */,
+				3FADA426235D06380074B095 /* Fietshare.swift */,
+				3FADA428235D2A890074B095 /* Stand.swift */,
 			);
 			path = fietshareDuoApp;
 			sourceTree = "<group>";
@@ -129,9 +150,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F75258923590B8D009A5E91 /* LaunchScreen.storyboard in Resources */,
+				3FADA41B235CBD440074B095 /* search.png in Resources */,
 				3F75258623590B8D009A5E91 /* Assets.xcassets in Resources */,
+				3FADA419235CBC970074B095 /* filter.png in Resources */,
 				3F75259123590D95009A5E91 /* Info.storyboard in Resources */,
 				3F75258423590B8C009A5E91 /* Main.storyboard in Resources */,
+				3FADA41D235CBDFC0074B095 /* help.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +168,11 @@
 			files = (
 				3F75259323591012009A5E91 /* ProfileViewController.swift in Sources */,
 				3F75258123590B8C009A5E91 /* ViewController.swift in Sources */,
+				3FADA423235D02C10074B095 /* Bike.swift in Sources */,
+				3FADA429235D2A890074B095 /* Stand.swift in Sources */,
+				3FADA427235D06380074B095 /* Fietshare.swift in Sources */,
 				3F75257F23590B8C009A5E91 /* AppDelegate.swift in Sources */,
+				3FADA421235CF63E0074B095 /* CustomAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
