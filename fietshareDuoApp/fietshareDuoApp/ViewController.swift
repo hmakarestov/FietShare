@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     let fietshare = Fietshare ()
     let locationManager = CLLocationManager()
-    let regionInMeters: Double = 10000
+    let regionInMeters: Double = 1000
     var previousLocation: CLLocation?
     
     let geoCoder = CLGeocoder()
@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         checkLocationServices()
         
         fietshare.addAnnotation(mapView: mapView)
+
         
        
     }
@@ -160,6 +161,7 @@ class ViewController: UIViewController {
     @IBAction func goButtonTapped(_sender:UIButton){
         getDirections()
     }
+    
 }
 extension ViewController: CLLocationManagerDelegate {
     
@@ -212,17 +214,22 @@ extension ViewController: MKMapViewDelegate{
     
     // anotations
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-      var pin = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
+       
+        guard let annotation = annotation as? CustomAnnotation else { return nil }
+         let identifier = "AnnotationView"
+      var pin = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
         if pin == nil  {
-            pin = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
+            pin = CustomAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         }
-        
+        else {
+            pin!.annotation = annotation
+        }
+          pin?.canShowCallout = true; // should be false otherwise crashing
         //pin?.image =  UIImage(named: "bike")
         
         // Resize image
-        let pinImage = UIImage(named: "bike")
+        let pinImage = UIImage(named: "bikes")
         let size = CGSize(width: 35, height: 25)
         UIGraphicsBeginImageContext(size)
         pinImage!.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
@@ -230,18 +237,45 @@ extension ViewController: MKMapViewDelegate{
         
         pin?.image = resizedImage
       
-        
-        pin?.canShowCallout = false; // should be false otherwise crashing 
-        
+     
+     
+    
+        //pin?.pintTintColor
+        //pin?.tintColor = redPinColor()
+       
+//        if(pin?.isSelected==true){
+//            pin?.isHighlighted=true
+//        }
+//
+       
         return pin
     }
+//    func redPinColor() -> UIColor {
+//        return UIColor.red
+//    }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("The anotation was selected!: \(String(describing: view.annotation?.title))")
+    
+       print("The anotation tit.e was selected!: \(String(describing: view.annotation?.title))")
+            //  print("The anotation was selected!: \(String(describing: pin?.title))")
+        
+         print("The anotation subTitle was selected!: \(String(describing: view.annotation?.subtitle))")
+         print("The anotation coordinate was selected!: \(String(describing: view.annotation?.coordinate))")
+    
     }
 }
 
-//extension ViewController : MKMapViewDelegate {
-   
-//}
+class CustomAnnotationView: MKPinAnnotationView {  // or nowadays, you might use MKMarkerAnnotationView
+    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
+        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+       // let button : UIButton = UIButton
+        canShowCallout = true
+        rightCalloutAccessoryView =  UIButton(type: .contactAdd)//UIButton(type: .custom)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+}
+
 
 

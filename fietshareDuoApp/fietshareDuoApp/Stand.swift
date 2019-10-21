@@ -17,12 +17,12 @@ public class Stand {
     
     var bikes = [Bike] ()
     
-    init(id:Int, nrOfSpots: Int, nrOfAvailableBikes:Int) {
+    init(id:Int, nrOfSpots: Int) {
         
         self.id = id
         self.nrOfSpots = nrOfSpots
        // self.nrOfAvailableSpots = nrOfAvailableSpots
-        self.nrOfAvailableBikes = nrOfAvailableBikes
+        self.nrOfAvailableBikes = 0
         self.nrOfAvailableSpots =  self.nrOfSpots - self.nrOfAvailableBikes
         //hardcoded bikes
         bikes.append(Bike(id:1,name:"BikeToHeaven",latitude:51.4416,longtitude:5.4697,available:true))
@@ -39,15 +39,21 @@ public class Stand {
         bikes.append(Bike(id:12,name:"St Zag",latitude:51.4375,longtitude:5.4367,available:true))
 
     }
-    
+    public func assigntBikesToStand() {
+        
+    }
     public func getNrOfAvailableBikes () -> Int {
-        for b in bikes {
-            if(b.available==true) {
-                self.nrOfAvailableBikes=self.nrOfAvailableBikes+1
-            }
-            
+//        for b in bikes {
+//            if(b.available==true) {
+//                self.nrOfAvailableBikes=self.nrOfAvailableBikes+1
+//            }
+//
+//        }
+       
+        for i in 0...bikes.count { // here comes the problem with the too many shown available bikes 
+            nrOfAvailableBikes += 1
         }
-        return self.nrOfAvailableBikes
+        return nrOfAvailableBikes
     }
     
     public func getNrOfAvailableSpots () -> Int {
