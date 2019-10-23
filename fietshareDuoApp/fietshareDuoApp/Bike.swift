@@ -16,7 +16,8 @@ public class Bike {
     var latitude : Double
     var longtitude : Double
     
-    let distance : Double // distance from user location..to be implemented
+    
+    let distance : Int // distance from user location..to be implemented
    let available : Bool // whether a bike is available or not 
    // let nrOfAvailable: Int
     

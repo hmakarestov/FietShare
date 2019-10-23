@@ -50,8 +50,14 @@ public class Stand {
 //
 //        }
        
-        for i in 0...bikes.count { // here comes the problem with the too many shown available bikes 
-            nrOfAvailableBikes += 1
+//        for i in 0...bikes.count {
+//            // here comes the problem with the too many shown available bikes
+//            nrOfAvailableBikes += 1
+//        }
+        for b in bikes {
+                        if(b.available==true) {
+                          nrOfAvailableBikes += 1
+                        }
         }
         return nrOfAvailableBikes
     }

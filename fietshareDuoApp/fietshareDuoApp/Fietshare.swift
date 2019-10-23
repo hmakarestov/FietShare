@@ -39,12 +39,13 @@ public class Fietshare{
     
     public func addAnnotation(mapView: MKMapView){
 
+        let img = UIImage(named: "bikes")
             for s in stands {
                 for bike in s.bikes {
 
                     let str = String("\(bike.distance) M")
                     let availbleBikes = String(s.nrOfAvailableBikes)
-                let bikePin  = CustomAnnotation(pinTitle: "Available Bikes", pinSubTitle: availbleBikes, pinLocation: bike.location)
+                    let bikePin  = CustomAnnotation(pinTitle: "", pinSubTitle: "", pinLocation: bike.location ) // image:img)
                     
                    // let bikeAvailablePin = CustomAnnotation(pinTitle: b.getNrOfAvailableBikes.toString, pinSubTitle: "100m", pinLocation: bike.location)
                // print(bikePin?.title ?? "Bike")

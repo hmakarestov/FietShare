@@ -14,7 +14,8 @@ import CoreLocation
 class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
- 
+    @IBOutlet weak var pinView: PinView!
+    
     //let customAnnotation = CustomAnnotation(pinTitle: "", pinSubTitle: "")
     
     let fietshare = Fietshare ()
@@ -220,12 +221,18 @@ extension ViewController: MKMapViewDelegate{
       var pin = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
         if pin == nil  {
-            pin = CustomAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            pin = CustomAnnotationView(annotation: annotation, reuseIdentifier: identifier) // CustomAnnotationView
+             pin!.image = UIImage(named: "bikes")
+            
         }
         else {
             pin!.annotation = annotation
         }
-          pin?.canShowCallout = true; // should be false otherwise crashing
+        
+       
+        //IMPORTANT
+          //pin?.canShowCallout = true; // this one is the default pop up of a callOut, currently a customized one is in work
+        
         //pin?.image =  UIImage(named: "bike")
         
         // Resize image
@@ -238,7 +245,7 @@ extension ViewController: MKMapViewDelegate{
         pin?.image = resizedImage
       
      
-     
+//      pinView.distanceLabel.text = "50"
     
         //pin?.pintTintColor
         //pin?.tintColor = redPinColor()
@@ -253,8 +260,104 @@ extension ViewController: MKMapViewDelegate{
 //    func redPinColor() -> UIColor {
 //        return UIColor.red
 //    }
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
     
+    func configureDetailView(annotationView: MKAnnotationView, bikePin: CustomAnnotation) {
+        
+        let width = 250
+        let widthImage = 200
+        let heightImage = 230
+        let height = 250
+        
+        let snapshotView = UIView()
+        let views = ["snapshotView": snapshotView]
+        snapshotView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[snapshotView(280)]", options: [], metrics: nil, views: views))
+        snapshotView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[snapshotView(250)]", options: [], metrics: nil, views: views))
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 20, width: widthImage, height: heightImage - 40))
+        
+        // configure button1
+        let button1 = UIButton(frame: CGRect(x: 20, y: height - 25, width: width / 1 - 5, height:30)) // original 35, x moves the buttom from left to right and vice versa
+        button1.setTitle("Reserve", for: .normal)
+    
+        button1.backgroundColor = UIColor.green
+        button1.layer.cornerRadius = 10
+        button1.layer.borderWidth = 1
+        button1.layer.borderColor = UIColor.black.cgColor
+        button1.addTarget(self, action: #selector(ViewController.goToListWithBikes), for: .touchDown)
+        
+        
+        let lbAvailable = UILabel(frame: CGRect(x: 80, y: 1, width: 180, height: 13))
+        
+       // lbAvailable.text = bikePin.title
+      
+        lbAvailable.textColor = .black
+        
+       let nrOfAvailable = UILabel(frame: CGRect(x: 240, y: 60, width: 50, height: 13))
+        for s in fietshare.stands{
+            for b in s.bikes {
+                lbAvailable.text = "Available Bikes: " + String(s.getNrOfAvailableBikes()) // shows too big numbers
+          nrOfAvailable.text =  String(b.distance) + "M"
+        
+            }
+            
+        }
+      
+        let btnClose = UIButton(frame: CGRect(x:0 , y:0 , width: 30, height: 25))
+        btnClose.setTitle("X", for: .normal)
+        btnClose.backgroundColor = UIColor.darkGray
+        btnClose.addTarget(self, action: #selector(ViewController.close), for: .touchDown)
+        // configure button2
+//        let button2 = UIButton(frame: CGRect(x: width / 2 + 5, y: height - 35, width: width / 2, height: 35))
+//        button2.setTitle("Posts", for: .normal)
+//        button2.backgroundColor = UIColor.darkGray
+//        button2.layer.cornerRadius = 5
+//        button2.layer.borderWidth = 1
+//        button2.layer.borderColor = UIColor.black.cgColor
+//        button2.addTarget(self, action: #selector(ViewController.goToPosts), for: .touchDown)
+        
+        let label1 = UILabel(frame: CGRect(x: 30, y: 10, width: 60, height: 15))
+        label1.text = "Bikes"
+        // configure image
+        let image = UIImage(named: "bikeAvatar")
+        imageView.image = image // implement your own logic
+        imageView.layer.cornerRadius = imageView.frame.size.height / 10
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 0
+        imageView.contentMode = UIView.ContentMode.scaleAspectFill
+        
+        // adding it to view
+        snapshotView.addSubview(imageView)
+        snapshotView.addSubview(button1)
+        snapshotView.addSubview(lbAvailable)
+        snapshotView.addSubview(nrOfAvailable)
+        snapshotView.addSubview(btnClose)
+        // snapshotView.addSubview(button2)
+        
+        annotationView.detailCalloutAccessoryView = snapshotView
+    }
+    @objc func close() {
+        print("view closed") // your implementation(segues and etc)
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func goToListWithBikes() {
+        print("A list of bikes") // your implementation(segues and etc)
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("mapView(_:annotationView:calloutAccessoryControlTapped)")
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        
+    
+        let bikePin = view.annotation as! CustomAnnotation
+       // bikePin.title = "Avaiable Bikes"
+       // self.spotDetailsForSendToPostsStripController = bikePin.spotDetailsItem
+        configureDetailView(annotationView: view, bikePin: bikePin) // adding the proper pop up
+        //
        print("The anotation tit.e was selected!: \(String(describing: view.annotation?.title))")
             //  print("The anotation was selected!: \(String(describing: pin?.title))")
         
@@ -269,13 +372,18 @@ class CustomAnnotationView: MKPinAnnotationView {  // or nowadays, you might use
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
        // let button : UIButton = UIButton
         canShowCallout = true
-        rightCalloutAccessoryView =  UIButton(type: .contactAdd)//UIButton(type: .custom)
+        //rightCalloutAccessoryView =  UIButton(type: .contactAdd)//UIButton(type: .custom)
+        //
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }
-
+extension ViewController: ExampleCalloutViewDelegate {
+    func mapView(_ mapView: MKMapView, didTapDetailsButton button: UIButton, for annotation: MKAnnotation) {
+        print("mapView(_:didTapDetailsButton:for:)")
+    }
+}
 
 
