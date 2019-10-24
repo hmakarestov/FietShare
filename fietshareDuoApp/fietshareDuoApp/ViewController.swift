@@ -336,13 +336,41 @@ extension ViewController: MKMapViewDelegate{
         annotationView.detailCalloutAccessoryView = snapshotView
     }
     @objc func close() {
-        print("view closed") // your implementation(segues and etc)
+        print("Annotation callOut closed") // your implementation(segues and etc)
         
-        self.dismiss(animated: true, completion: nil)
+        for annotation in self.mapView.selectedAnnotations
+        {
+            self.mapView.deselectAnnotation(annotation, animated: true)
+        }
+       
+    }
+    
+    @objc func getListOfbikes() {
+        print("list with bikes") // your implementation(segues and etc)
+         //performSegue(withIdentifier: "bikeList", sender: self)}
+        
     }
     
     @objc func goToListWithBikes() {
         print("A list of bikes") // your implementation(segues and etc)
+        let alertController = UIAlertController(title: "You are about to reserve a bike", message: "You have 15 min to reach the bike and unclock it. After 15 minutes the reservation will expire.", preferredStyle: .actionSheet)
+        //We add buttons to the alert controller by creating UIAlertActions:
+        let actionCancel = UIAlertAction(title: "Cancel",
+                                         style: .cancel,
+                                         handler: {(alert: UIAlertAction!) in self.close()}) //You can use a block here to ha
+        let actionOk = UIAlertAction(title: "OK",
+                                     style: .default,
+                                     handler: {(alert: UIAlertAction!) in self.performSegue(withIdentifier: "bikeList", sender: self)})//You can use a block here to handle a press on this button
+      
+        alertController.addAction(actionCancel)
+        alertController.addAction(actionOk)
+        
+      //  actionOk.addTarget(self, action: #selector(ViewController.getListOfbikes()), for: .touchDown)
+        
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+        
     }
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {

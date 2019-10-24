@@ -25,6 +25,8 @@
 		3FF3550E235F9E460072DDB6 /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3550D235F9E460072DDB6 /* PinView.swift */; };
 		3FF35516235FA7F80072DDB6 /* ExampleCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF35515235FA7F80072DDB6 /* ExampleCalloutView.swift */; };
 		3FF35518235FA9830072DDB6 /* CustomPinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF35517235FA9830072DDB6 /* CustomPinAnnotationView.swift */; };
+		3FF3551A2360EF330072DDB6 /* ActiveSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF355192360EF330072DDB6 /* ActiveSessionViewController.swift */; };
+		3FF3551C23611E140072DDB6 /* LockBikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3551B23611E140072DDB6 /* LockBikeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		3FF3550D235F9E460072DDB6 /* PinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
 		3FF35515235FA7F80072DDB6 /* ExampleCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCalloutView.swift; sourceTree = "<group>"; };
 		3FF35517235FA9830072DDB6 /* CustomPinAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPinAnnotationView.swift; sourceTree = "<group>"; };
+		3FF355192360EF330072DDB6 /* ActiveSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSessionViewController.swift; sourceTree = "<group>"; };
+		3FF3551B23611E140072DDB6 /* LockBikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockBikeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 				3FF3550D235F9E460072DDB6 /* PinView.swift */,
 				3FF35515235FA7F80072DDB6 /* ExampleCalloutView.swift */,
 				3FF35517235FA9830072DDB6 /* CustomPinAnnotationView.swift */,
+				3FF355192360EF330072DDB6 /* ActiveSessionViewController.swift */,
+				3FF3551B23611E140072DDB6 /* LockBikeViewController.swift */,
 			);
 			path = fietshareDuoApp;
 			sourceTree = "<group>";
@@ -179,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FF3551A2360EF330072DDB6 /* ActiveSessionViewController.swift in Sources */,
 				3F75259323591012009A5E91 /* ProfileViewController.swift in Sources */,
 				3F75258123590B8C009A5E91 /* ViewController.swift in Sources */,
 				3FF3550E235F9E460072DDB6 /* PinView.swift in Sources */,
@@ -188,6 +195,7 @@
 				3FADA429235D2A890074B095 /* Stand.swift in Sources */,
 				3FADA427235D06380074B095 /* Fietshare.swift in Sources */,
 				3F75257F23590B8C009A5E91 /* AppDelegate.swift in Sources */,
+				3FF3551C23611E140072DDB6 /* LockBikeViewController.swift in Sources */,
 				3FADA421235CF63E0074B095 /* CustomAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
