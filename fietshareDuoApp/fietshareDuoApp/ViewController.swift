@@ -17,10 +17,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var pinView: PinView!
     
     //let customAnnotation = CustomAnnotation(pinTitle: "", pinSubTitle: "")
+     var stand = Stand(id:101, nrOfSpots:15,latitude:51.4516,longtitude:5.4697)
     
     let fietshare = Fietshare ()
     let locationManager = CLLocationManager()
-    let regionInMeters: Double = 1000
+    let regionInMeters: CLLocationDistance = 1000.0
     var previousLocation: CLLocation?
     
     let geoCoder = CLGeocoder()
@@ -29,10 +30,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServices()
-        
         fietshare.addAnnotation(mapView: mapView)
 
-        
+     
        
     }
     
@@ -59,10 +59,12 @@ class ViewController: UIViewController {
     
     
     func centerViewOnUserLocation() {
-        if let location = locationManager.location?.coordinate {
-            let region = MKCoordinateRegion.init(center: location, latitudinalMeters: 0.005, longitudinalMeters: 0.005)
-            mapView.setRegion(region, animated: true)
-        }
+//        let me = CLLocationCoordinate2D(latitude: 51.4416, longitude: 5.4697)
+//        if let location = locationManager.location?.coordinate {
+//            let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)) //MKCoordinateRegion.init(center: me, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+//            mapView.setRegion(region, animated: true)
+//            mapView.delegate = self
+//        }
     }
     
     
@@ -70,6 +72,7 @@ class ViewController: UIViewController {
         if CLLocationManager.locationServicesEnabled() {
             setupLocationManager()
             checkLocationAuthorization()
+            centerViewOnUserLocation()
         } else {
             // Show alert letting the user know they have to turn this on.
         }
@@ -173,6 +176,18 @@ extension ViewController: CLLocationManagerDelegate {
 
 extension ViewController: MKMapViewDelegate{
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        // let me = CLLocationCoordinate2D(latitude: 51.2416, longitude: 5.4697)
+         if let location = locationManager.location?.coordinate {
+        let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+        
+        self.mapView.setRegion(region, animated: true)
+        }
+    }
+    func mapViewWillStartRenderingMap(_ mapView: MKMapView) {
+        print("rendering map")
+    }
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let center = getCenterLocation(for: mapView)
         let geoCoder = CLGeocoder()
@@ -236,14 +251,14 @@ extension ViewController: MKMapViewDelegate{
         //pin?.image =  UIImage(named: "bike")
         
         // Resize image
-        let pinImage = UIImage(named: "bikes")
+        let pinImage = UIImage(named: "bikeAvatar")
         let size = CGSize(width: 35, height: 25)
         UIGraphicsBeginImageContext(size)
         pinImage!.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         
         pin?.image = resizedImage
-      
+        
      
 //      pinView.distanceLabel.text = "50"
     

@@ -113,7 +113,7 @@
                                 </userDefinedRuntimeAttributes>
                             </tabBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q3G-hb-Mv1">
-                                <rect key="frame" x="0.0" y="20" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YOw-c6-3Yc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -212,11 +212,12 @@
                         <viewLayoutGuide key="safeArea" id="sjh-Be-Psz"/>
                     </view>
                     <connections>
+                        <outlet property="bikeId" destination="pzn-l1-8qr" id="bXV-nv-IlM"/>
                         <outlet property="btnLock" destination="gJF-Gg-jo1" id="Gwg-68-WwV"/>
                         <outlet property="btnUnclock" destination="eGl-qF-6Kb" id="vJd-EN-Hve"/>
                         <outlet property="lbAmount" destination="vqU-ZX-cgX" id="4Pr-dv-bWm"/>
                         <outlet property="lbTime" destination="IgQ-mg-quZ" id="IGI-Yu-BZu"/>
-                        <segue destination="EE7-xo-1ew" kind="show" identifier="lockBikeId" id="bgf-xZ-lKK"/>
+                        <segue destination="EE7-xo-1ew" kind="presentation" identifier="lockBikeId" id="bgf-xZ-lKK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UnI-Ad-g0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -288,7 +289,6 @@
         <image name="user" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bgf-xZ-lKK"/>
-        <segue reference="xyB-60-3QW"/>
+        <segue reference="kKG-Nf-XNQ"/>
     </inferredMetricsTieBreakers>
 </document>

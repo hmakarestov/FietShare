@@ -49,7 +49,10 @@ class LockBikeViewController: UIViewController {
                     
                     let actionOk = UIAlertAction(title: "OK",
                                                  style: .default,
-                                                 handler: nil)//You can use a block here to handle a press on this button
+                                                 handler: { a in self.dismiss(animated: true) {
+                                                    
+                                                    }
+                    })//You can use a block here to handle a press on this buttonblock here to handle a press on this button
                     
                     //{(alert: UIAlertAction!) in self.performSegue(withIdentifier: "bikeList", sender: self)}
                     alertController.addAction(actionOk)

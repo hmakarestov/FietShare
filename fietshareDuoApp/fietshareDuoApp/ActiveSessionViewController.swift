@@ -13,8 +13,10 @@ class ActiveSessionViewController: UIViewController {
     @IBOutlet weak var lbAmount: UILabel!
     @IBOutlet weak var btnUnclock: UIButton!
  
+    @IBOutlet weak var bikeId: UILabel!
     @IBOutlet weak var btnLock: UIButton!
     
+    let fietsshare = Fietshare()
     var timer:Timer?
     var timeLeft = 60
     
@@ -29,7 +31,12 @@ class ActiveSessionViewController: UIViewController {
         
         //to be fixed
         btnLock.isHidden = true
-            
+        
+        for s in fietsshare.stands{
+            for b in s.bikes {
+                bikeId.text = String(b.id)
+            }
+        }
        
         
         
