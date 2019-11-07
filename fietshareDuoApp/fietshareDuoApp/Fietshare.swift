@@ -29,45 +29,46 @@ public class Fietshare{
     //var loc : CLLocationCoordinate2D
     //  var loco = CLLocationCoordinate2D(latitude: <#T##CLLocationDegrees#>, longitude: <#T##CLLocationDegrees#>)
     init() {
+        stands.append(stand101)
+        stands.append(stand109)
+         stands.append(stand102)
+         stands.append(stand103)
+        stands.append(stand104)
+        stands.append(stand105)
+        stands.append(stand106)
+         stands.append(stand107)
+        stands.append(stand108)
+        stands.append(stand110)
+        stands.append(stand111)
+        stands.append(stand112)
+        let number = Int.random(in: 0 ..< 100)
+        for s in stands {
+            s.addBikeToStand(bike:Bike(id:number,name:"",latitude:s.latitude,longtitude:s.longtitude,available:true))
+        }
         
-        
-        //stands.append(stand)
         stand101.addBikeToStand(bike: Bike(id:1,name:"BikeToHeaven",latitude:51.4416,longtitude:5.4697,available:true))
-         stand101.addBikeToStand(bike: Bike(id:2,name:"BikeToHell",latitude:51.4616,longtitude:5.4997,available:true))
-         stands.append(stand101)
-        
+        stand101.addBikeToStand(bike: Bike(id:2,name:"BikeToHell",latitude:51.4616,longtitude:5.4997,available:true))
+
+
         stand102.addBikeToStand(bike:Bike(id:3,name:"BikeToBulgaria",latitude:51.4345,longtitude:5.4397,available:true))
-           stands.append(stand102)
+       
         stand103.addBikeToStand(bike: Bike(id:4,name:"Sparta",latitude:51.4316,longtitude:5.4697,available:false))
         stand103.addBikeToStand(bike: Bike(id:5,name:"Athene",latitude:51.4116,longtitude:5.4997,available:true))
-         stands.append(stand103)
+       
         stand104.addBikeToStand(bike: Bike(id:6,name:"Loner",latitude:51.4945,longtitude:5.4397,available:true))
-         stands.append(stand104)
+        
         stand105.addBikeToStand(bike:Bike(id:7,name:"Wolf",latitude:51.4216,longtitude:5.4597,available:false))
         stand105.addBikeToStand(bike:Bike(id:8,name:"De circel",latitude:51.4466,longtitude:5.4797,available:true))
         stand105.addBikeToStand(bike: Bike(id:9,name:"Het vierkant",latitude:51.4445,longtitude:5.4327,available:true))
-         stands.append(stand105)
-        stand106.addBikeToStand(bike: Bike(id:10,name:"De driehoek",latitude:51.4716,longtitude:5.4637,available:true))
-         stands.append(stand106)
-        stand107.addBikeToStand(bike: Bike(id:11,name:"De baas ",latitude:51.4696,longtitude:5.4957,available:true))
-          stands.append(stand107)
-        stand108.addBikeToStand(bike: Bike(id:12,name:"St Zag",latitude:51.4375,longtitude:5.4367,available:true))
-         stands.append(stand108)
-       
-     
-       
-       
-       
-       
-      
-       
-        stands.append(stand109)
-        stands.append(stand110)
-        stands.append(stand111)
         
-        for s in stands{
-            s.availableBikes()
-        }
+        stand106.addBikeToStand(bike: Bike(id:10,name:"De driehoek",latitude:51.4716,longtitude:5.4637,available:true))
+        
+        stand107.addBikeToStand(bike: Bike(id:11,name:"De baas ",latitude:51.4696,longtitude:5.4957,available:true))
+       
+        stand108.addBikeToStand(bike: Bike(id:12,name:"St Zag",latitude:51.4375,longtitude:5.4367,available:true))
+       
+
+
        
         
     }
@@ -75,22 +76,12 @@ public class Fietshare{
  
     
     public func addAnnotation(mapView: MKMapView){
-
-        let img = UIImage(named: "bikes")
             for s in stands {
-                for bike in s.bikes {
-
-                    let str = String("\(bike.distance) M")
-                    let availbleBikes = String(s.getNrOfAvailableBikes())
-                    let bikePin  = CustomAnnotation(pinTitle: "", pinSubTitle: "", pinLocation: s.location ) // image:img)
-                    print( s.getNrOfAvailableBikes())
-                   // let bikeAvailablePin = CustomAnnotation(pinTitle: b.getNrOfAvailableBikes.toString, pinSubTitle: "100m", pinLocation: bike.location)
-               // print(bikePin?.title ?? "Bike")
-                     // bikePin.canShowCallout = true;
+                let bikePin  = CustomAnnotation(pinTitle:" Available Bikes: \(String(s.bikes.count))", pinSubTitle:" Distance: \(String(s.distance))M" , pinLocation: s.location )
+              //  bikePin.title.
                 mapView.addAnnotation(bikePin)
-                    mapView.selectAnnotation(bikePin, animated: true)
-                }
-
+                mapView.selectAnnotation(bikePin, animated: true)
+                
             }
         }
 }

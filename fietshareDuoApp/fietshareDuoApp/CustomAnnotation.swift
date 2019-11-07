@@ -13,7 +13,10 @@ import CoreLocation
 
 public class CustomAnnotation : NSObject, MKAnnotation {
     public var coordinate : CLLocationCoordinate2D  // should be public otherwise it does not work
-   public var title : String? // should be public otherwise it does not work
+    @objc dynamic public var title : String? {
+        willSet { willChangeValue(forKey: "title") }
+        didSet { didChangeValue(forKey: "title") }
+    } // should be public otherwise it does not work
     public var subtitle: String?  // should be public otherwise it does not work
    // public var image : UIImage
     

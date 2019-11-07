@@ -16,8 +16,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var pinView: PinView!
     
+    
     //let customAnnotation = CustomAnnotation(pinTitle: "", pinSubTitle: "")
-     var stand = Stand(id:101, nrOfSpots:15,latitude:51.4516,longtitude:5.4697)
+   //  var stand = Stand(id:101, nrOfSpots:15,latitude:51.4516,longtitude:5.4697)
     
     let fietshare = Fietshare ()
     let locationManager = CLLocationManager()
@@ -30,28 +31,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServices()
+        
         fietshare.addAnnotation(mapView: mapView)
-
-     
        
     }
     
-    
-//    public func addAnnotation(){
-//
-//
-//
-//        for b in fietshare.bikes {
-//
-//
-//
-//            let pin  = CustomAnnotation(pinTitle: b.name, pinSubTitle: "100m", pinLocation: b.location)
-//            print(pin?.title ?? "Bike")
-//            mapView.addAnnotation(pin!)
-//
-//        }
-//    }
-    
+
     func setupLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -199,14 +184,14 @@ extension ViewController: MKMapViewDelegate{
         
         geoCoder.cancelGeocode()
         geoCoder.reverseGeocodeLocation(center) { [weak self] (placemarks, error) in
-         //   guard let self = self else { return }
+            guard self != nil else { return }
             
             if let _ = error {
                 //TODO: Show alert informing the user
                 return
             }
             
-            guard let placemark = placemarks?.first else {
+            guard (placemarks?.first) != nil else {
                 //TODO: Show alert informing the user
                 return
             }
@@ -259,22 +244,9 @@ extension ViewController: MKMapViewDelegate{
         
         pin?.image = resizedImage
         
-     
-//      pinView.distanceLabel.text = "50"
-    
-        //pin?.pintTintColor
-        //pin?.tintColor = redPinColor()
-       
-//        if(pin?.isSelected==true){
-//            pin?.isHighlighted=true
-//        }
-//
-       
         return pin
     }
-//    func redPinColor() -> UIColor {
-//        return UIColor.red
-//    }
+
     
     func configureDetailView(annotationView: MKAnnotationView, bikePin: CustomAnnotation) {
         
@@ -300,35 +272,31 @@ extension ViewController: MKMapViewDelegate{
         button1.layer.borderColor = UIColor.black.cgColor
         button1.addTarget(self, action: #selector(ViewController.goToListWithBikes), for: .touchDown)
         
-        
         let lbAvailable = UILabel(frame: CGRect(x: 80, y: 1, width: 180, height: 13))
-        
-       // lbAvailable.text = bikePin.title
-      
         lbAvailable.textColor = .black
+        let nrOfAvailables = UILabel(frame:CGRect(x: 160, y: -30, width: 180, height: 13))
         
-       let nrOfAvailable = UILabel(frame: CGRect(x: 240, y: 60, width: 50, height: 13))
-        for s in fietshare.stands{
-            for b in s.bikes {
-                lbAvailable.text = "Available Bikes: " + String(s.getNrOfAvailableBikes()) // shows too big numbers
-          nrOfAvailable.text =  String(b.distance) + "M"
         
+        
+        let queue = DispatchQueue(label: "update")
+        
+        queue.async {
+            for s in self.fietshare.stands{
+                print(s.id)
+                print("Nr of bikes")
+                print(s.bikes.count)
+            }
+            // UPDATE UI after all calculations have been done
+            DispatchQueue.main.async {
+                lbAvailable.text = bikePin.title
+                nrOfAvailables.text = bikePin.subtitle
             }
             
         }
-      
         let btnClose = UIButton(frame: CGRect(x:0 , y:0 , width: 30, height: 25))
         btnClose.setTitle("X", for: .normal)
         btnClose.backgroundColor = UIColor.darkGray
         btnClose.addTarget(self, action: #selector(ViewController.close), for: .touchDown)
-        // configure button2
-//        let button2 = UIButton(frame: CGRect(x: width / 2 + 5, y: height - 35, width: width / 2, height: 35))
-//        button2.setTitle("Posts", for: .normal)
-//        button2.backgroundColor = UIColor.darkGray
-//        button2.layer.cornerRadius = 5
-//        button2.layer.borderWidth = 1
-//        button2.layer.borderColor = UIColor.black.cgColor
-//        button2.addTarget(self, action: #selector(ViewController.goToPosts), for: .touchDown)
         
         let label1 = UILabel(frame: CGRect(x: 30, y: 10, width: 60, height: 15))
         label1.text = "Bikes"
@@ -338,14 +306,15 @@ extension ViewController: MKMapViewDelegate{
         imageView.layer.cornerRadius = imageView.frame.size.height / 10
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 0
-        imageView.contentMode = UIView.ContentMode.scaleAspectFill
+        imageView.contentMode = UIView.ContentMode.scaleToFill
+       // imageView.
         
         // adding it to view
         snapshotView.addSubview(imageView)
         snapshotView.addSubview(button1)
-        snapshotView.addSubview(lbAvailable)
-        snapshotView.addSubview(nrOfAvailable)
-        snapshotView.addSubview(btnClose)
+       // snapshotView.addSubview(lbAvailable)
+        snapshotView.addSubview(nrOfAvailables)
+       // snapshotView.addSubview(btnClose)
         // snapshotView.addSubview(button2)
         
         annotationView.detailCalloutAccessoryView = snapshotView
@@ -399,7 +368,9 @@ extension ViewController: MKMapViewDelegate{
         let bikePin = view.annotation as! CustomAnnotation
        // bikePin.title = "Avaiable Bikes"
        // self.spotDetailsForSendToPostsStripController = bikePin.spotDetailsItem
-        configureDetailView(annotationView: view, bikePin: bikePin) // adding the proper pop up
+        
+        configureDetailView(annotationView: view, bikePin: bikePin)
+      // adding the proper pop up
         //
        print("The anotation tit.e was selected!: \(String(describing: view.annotation?.title))")
             //  print("The anotation was selected!: \(String(describing: pin?.title))")

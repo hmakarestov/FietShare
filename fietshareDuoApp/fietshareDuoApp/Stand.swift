@@ -23,12 +23,15 @@ public class Stand {
     var location : CLLocationCoordinate2D
     var latitude : Double
     var longtitude : Double
+    var distance : Int
+    
     init(id:Int, nrOfSpots: Int, latitude: Double, longtitude:Double) {
         
         self.id = id
         self.nrOfSpots = nrOfSpots
         self.longtitude=longtitude;
         self.latitude = latitude
+        self.distance = 50
        // self.nrOfAvailableSpots = nrOfAvailableSpots
         //self.nrOfAvailableBikes = 0
         self.nrOfAvailableSpots =  self.nrOfSpots - 5 // self.nrOfAvailableBikes

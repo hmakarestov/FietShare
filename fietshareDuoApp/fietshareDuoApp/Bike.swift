@@ -10,8 +10,8 @@ import Foundation
 import MapKit
 
 public class Bike {
-    let id : Int
-    let name : String
+    var id : Int
+    var name : String
     var location : CLLocationCoordinate2D
     var latitude : Double
     var longtitude : Double
