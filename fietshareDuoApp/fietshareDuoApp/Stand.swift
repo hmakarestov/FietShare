@@ -13,7 +13,7 @@ public class Stand {
     
     let id : Int
     let nrOfSpots : Int // total spots in a stand
-    var nrOfAvailableSpots : Int // total available spots to park a bike in at a specific moment
+    var nrOfAvailableSpots = Int () // total available spots to park a bike in at a specific moment
   //  var nrOfAvailableBikes : Int // total available bikes in a stand
     
     var avBikes = Array <Bike>()
@@ -34,7 +34,7 @@ public class Stand {
         self.distance = 50
        // self.nrOfAvailableSpots = nrOfAvailableSpots
         //self.nrOfAvailableBikes = 0
-        self.nrOfAvailableSpots =  self.nrOfSpots - 5 // self.nrOfAvailableBikes
+        // self.nrOfAvailableBikes
         
       //  bikes = [Bike] ()
         //hardcoded bikes
@@ -85,7 +85,7 @@ public class Stand {
     }
     
     public func getNrOfAvailableSpots () -> Int {
-        
+        self.nrOfAvailableSpots =  self.nrOfSpots - bikes.count 
         return  self.nrOfAvailableSpots 
     }
     

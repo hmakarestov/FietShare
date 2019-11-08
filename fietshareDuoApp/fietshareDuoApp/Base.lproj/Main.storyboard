@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V7P-KK-efz">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="COI-9G-6Lw"/>
                                 </constraints>
@@ -76,11 +76,114 @@
                     <connections>
                         <outlet property="mapView" destination="V7P-KK-efz" id="u4t-bn-lIH"/>
                         <segue destination="gaB-DQ-CHs" kind="show" identifier="bikeList" id="kKG-Nf-XNQ"/>
+                        <segue destination="VvC-mp-uYU" kind="show" identifier="bikesTableList" id="awo-as-fS0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+        </scene>
+        <!--Map Stands View Controller-->
+        <scene sceneID="Ryk-5E-JPb">
+            <objects>
+                <viewController id="yIn-SQ-iwp" customClass="MapStandsViewController" customModule="fietshareDuoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iSR-VJ-IMU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NAs-EZ-4EH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yIn-SQ-iwp" id="GR6-hH-uUf"/>
+                                </connections>
+                            </mapView>
+                            <tabBar contentMode="scaleAspectFit" fixedFrame="YES" translucent="NO" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="Qeq-ac-zdx">
+                                <rect key="frame" x="0.0" y="609" width="375" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <tabBarItem title="Map" image="theMap" id="4gR-wP-cDf">
+                                        <inset key="imageInsets" minX="0.0" minY="30" maxX="0.0" maxY="35"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Active Session" image="clock" id="BjR-cz-Orr">
+                                        <inset key="imageInsets" minX="0.0" minY="20" maxX="0.0" maxY="20"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Profile" image="user" id="YVY-JO-gpT">
+                                        <inset key="imageInsets" minX="0.0" minY="22" maxX="0.0" maxY="20"/>
+                                    </tabBarItem>
+                                </items>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                        <color key="value" red="1" green="0.1097636349" blue="0.92817182789999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="obp-BK-p6r" firstAttribute="bottom" secondItem="NAs-EZ-4EH" secondAttribute="bottom" id="BIB-8e-2qf"/>
+                            <constraint firstItem="NAs-EZ-4EH" firstAttribute="top" secondItem="obp-BK-p6r" secondAttribute="top" id="MhW-Cw-XG0"/>
+                            <constraint firstItem="obp-BK-p6r" firstAttribute="trailing" secondItem="NAs-EZ-4EH" secondAttribute="trailing" id="U3A-IV-7V2"/>
+                            <constraint firstItem="NAs-EZ-4EH" firstAttribute="leading" secondItem="obp-BK-p6r" secondAttribute="leading" id="aZN-AN-B9C"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="obp-BK-p6r"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="NAs-EZ-4EH" id="1zU-y0-cOt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8OZ-tK-cEq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="859.52023988005999"/>
+        </scene>
+        <!--Bikes List Table View Controller-->
+        <scene sceneID="CkN-XZ-Wzt">
+            <objects>
+                <tableViewController id="VvC-mp-uYU" customClass="BikesListTableViewController" customModule="fietshareDuoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Nj-Xi-1mh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bikeCell" textLabel="nfG-fl-XtP" detailTextLabel="tNs-FG-Gi7" style="IBUITableViewCellStyleSubtitle" id="bf3-oq-bHz">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bf3-oq-bHz" id="0Kq-lg-HKY">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nfG-fl-XtP">
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tNs-FG-Gi7">
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VvC-mp-uYU" id="eLx-fO-nHc"/>
+                            <outlet property="delegate" destination="VvC-mp-uYU" id="F5X-2G-oze"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="gaB-DQ-CHs" kind="show" identifier="activeSession" id="fKe-LL-yan"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5B-Q3-jDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1455" y="-535"/>
         </scene>
         <!--Active Session-->
         <scene sceneID="9C1-fx-7US">
@@ -90,10 +193,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleAspectFit" translucent="NO" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="POB-Ke-xqb">
+                            <tabBar tag="1" contentMode="scaleAspectFit" translucent="NO" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="POB-Ke-xqb">
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                 <items>
-                                    <tabBarItem title="Map" image="theMap" id="bXt-us-1Nz">
+                                    <tabBarItem tag="1" title="Map" image="theMap" id="bXt-us-1Nz">
                                         <inset key="imageInsets" minX="0.0" minY="30" maxX="0.0" maxY="35"/>
                                     </tabBarItem>
                                     <tabBarItem title="Active Session" image="clock" id="KGT-8y-80O">
@@ -113,7 +216,7 @@
                                 </userDefinedRuntimeAttributes>
                             </tabBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q3G-hb-Mv1">
-                                <rect key="frame" x="0.0" y="64" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YOw-c6-3Yc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -217,7 +320,9 @@
                         <outlet property="btnUnclock" destination="eGl-qF-6Kb" id="vJd-EN-Hve"/>
                         <outlet property="lbAmount" destination="vqU-ZX-cgX" id="4Pr-dv-bWm"/>
                         <outlet property="lbTime" destination="IgQ-mg-quZ" id="IGI-Yu-BZu"/>
+                        <outlet property="mapBackBtn" destination="bXt-us-1Nz" id="jyg-5E-uh0"/>
                         <segue destination="EE7-xo-1ew" kind="presentation" identifier="lockBikeId" id="bgf-xZ-lKK"/>
+                        <segue destination="yIn-SQ-iwp" kind="show" identifier="goBackToMap" id="SkO-2O-Vmc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UnI-Ad-g0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,6 +359,7 @@
                     <connections>
                         <outlet property="lockBikeIdInput" destination="cDK-gv-S6a" id="ZMg-BM-2zy"/>
                         <segue destination="gaB-DQ-CHs" kind="show" identifier="lockBikeFinaly" id="xyB-60-3QW"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToMap" id="1Q5-9o-cHb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cv8-OO-PhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -290,5 +396,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kKG-Nf-XNQ"/>
+        <segue reference="1Q5-9o-cHb"/>
     </inferredMetricsTieBreakers>
 </document>

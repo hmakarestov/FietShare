@@ -8,18 +8,23 @@
 
 import UIKit
 
-class ActiveSessionViewController: UIViewController {
+class ActiveSessionViewController: UIViewController,UITabBarControllerDelegate  {
     @IBOutlet weak var lbTime: UILabel!
     @IBOutlet weak var lbAmount: UILabel!
     @IBOutlet weak var btnUnclock: UIButton!
  
+    @IBOutlet weak var mapBackBtn: UITabBarItem!
     @IBOutlet weak var bikeId: UILabel!
     @IBOutlet weak var btnLock: UIButton!
-    
+     private var childContainerController:ViewController?
+    var id = String ()
     let fietsshare = Fietshare()
     var timer:Timer?
-    var timeLeft = 60
-    
+    var timer2:Timer?
+    var timeLeft = 900
+    var timeUnlock = 60
+    var timeSession = 0
+    var priceSession = 0.00
     override func viewDidLoad() {
         super.viewDidLoad()
        // let helpButton = UIButton()
@@ -31,24 +36,12 @@ class ActiveSessionViewController: UIViewController {
         
         //to be fixed
         btnLock.isHidden = true
-        
-        for s in fietsshare.stands{
-            for b in s.bikes {
-                bikeId.text = String(b.id)
-            }
-        }
-       
-        
-        
-           // self.lbBikeIdInput.keyboardType = .decimalPad
-       
-      
-        
-        //UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: self, action: Selector(""))
+        bikeId.text = String(id)
 
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
+        fietsshare.sessionActive=true
         
-        //self.navigationItem.rightBarButtonItem = helpButton
-        // Do any additional setup after loading the view.
+       //   performSegue(withIdentifier: "goBackToMap", sender: self)
     }
     
     
@@ -76,17 +69,20 @@ class ActiveSessionViewController: UIViewController {
     }
   
     @IBAction func reserveBike(_ sender: Any) {
-     timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
-        
+      
+        if timeLeft >= 0
+        {
+            timer?.invalidate()
+            timer = nil
+        }
+     timer2 = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireSession), userInfo: nil, repeats: true)
         alertUser()
     }
     
     @IBAction func lockBike(_ sender: Any) {
-        
-        //btnLock.isHidden=false
         performSegue(withIdentifier: "lockBikeId", sender: self)
-        if(timeLeft>0){
-        timer!.invalidate()
+        if(timeSession>=0){
+        timer2!.invalidate()
         }
         timer = nil
         
@@ -96,11 +92,7 @@ class ActiveSessionViewController: UIViewController {
         //find a way to make it countdown from 0 to 60
         print("FIRE!!!")
         timeLeft -= 1
-        //lbTime.text = "\(timeLeft)"
-       //  timeString(time: TimeInterval(timeLeft))
-         lbTime.text = String(TimeInterval(timeLeft))
-        
-        
+          lbTime.text =  timeString(time: TimeInterval(timeLeft))
         if timeLeft <= 0 {
             timer!.invalidate()
             timer = nil
@@ -109,6 +101,21 @@ class ActiveSessionViewController: UIViewController {
         
     }
     
+    @objc func fireSession()
+    {
+        //find a way to make it countdown from 0 to 60
+        print("FIRE SESSION!!!")
+        
+        timeSession+=1
+        lbTime.text = timeString(time: TimeInterval(timeSession))
+        if timeSession > 60 {
+            priceSession = Double(timeSession)/60 * 0.20
+            lbAmount.text = String(format: "%.2f", priceSession) + "€" // shift + option + 2
+        }
+        
+        
+    }
+
     func timeString(time: TimeInterval) -> String {
        // let hour = Int(time) / 3600
         let minute = Int(time) / 60 % 60
@@ -117,6 +124,8 @@ class ActiveSessionViewController: UIViewController {
         // return formated string
         return String(format: "%02i:%02i", minute, second)
     }
+    
+    
 
     /*
      @IBAction func reserveBike(_ sender: Any) {
@@ -129,5 +138,7 @@ class ActiveSessionViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+  
 
 }

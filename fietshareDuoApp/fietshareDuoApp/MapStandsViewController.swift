@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  MapStandsViewController.swift
 //  fietshareDuoApp
 //
-//  Created by Student on 17/10/2019.
+//  Created by Student on 07/11/2019.
 //  Copyright © 2019 Student. All rights reserved.
 //
 
@@ -10,17 +10,10 @@ import UIKit
 import MapKit //second
 import CoreLocation
 
-
-class ViewController: UIViewController {
+class MapStandsViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var pinView: PinView!
-    
-    var bikes = [Bike] ()
-     private var childContainerController:BikesListTableViewController?
-    //let customAnnotation = CustomAnnotation(pinTitle: "", pinSubTitle: "")
-   //  var stand = Stand(id:101, nrOfSpots:15,latitude:51.4516,longtitude:5.4697)
-    
+     var bikes = [Bike] ()
     let fietshare = Fietshare ()
     let locationManager = CLLocationManager()
     let regionInMeters: CLLocationDistance = 1000.0
@@ -32,12 +25,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServices()
-        fietshare.sessionActive = false
+        fietshare.sessionActive = true
         fietshare.addAnnotation(mapView: mapView)
-       
+        
+        // Do any additional setup after loading the view.
     }
     
-
     func setupLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -45,12 +38,12 @@ class ViewController: UIViewController {
     
     
     func centerViewOnUserLocation() {
-//        let me = CLLocationCoordinate2D(latitude: 51.4416, longitude: 5.4697)
-//        if let location = locationManager.location?.coordinate {
-//            let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)) //MKCoordinateRegion.init(center: me, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-//            mapView.setRegion(region, animated: true)
-//            mapView.delegate = self
-//        }
+        //        let me = CLLocationCoordinate2D(latitude: 51.4416, longitude: 5.4697)
+        //        if let location = locationManager.location?.coordinate {
+        //            let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)) //MKCoordinateRegion.init(center: me, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+        //            mapView.setRegion(region, animated: true)
+        //            mapView.delegate = self
+        //        }
     }
     
     
@@ -100,8 +93,8 @@ class ViewController: UIViewController {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
-
-
+    
+    
     func getDirections () {
         //we need user's location so we can give directions
         guard let location = locationManager.location?.coordinate else {
@@ -152,23 +145,35 @@ class ViewController: UIViewController {
         getDirections()
     }
     
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
-extension ViewController: CLLocationManagerDelegate {
+
+extension MapStandsViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuthorization()
     }
 }
 
-extension ViewController: MKMapViewDelegate{
+extension MapStandsViewController: MKMapViewDelegate{
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         // let me = CLLocationCoordinate2D(latitude: 51.2416, longitude: 5.4697)
-         if let location = locationManager.location?.coordinate {
-        let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
-        
-        self.mapView.setRegion(region, animated: true)
+        if let location = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+            
+            self.mapView.setRegion(region, animated: true)
         }
     }
     func mapViewWillStartRenderingMap(_ mapView: MKMapView) {
@@ -197,12 +202,6 @@ extension ViewController: MKMapViewDelegate{
                 return
             }
             
-          //  let streetNumber = placemark.subThoroughfare ?? ""
-        //    let streetName = placemark.thoroughfare ?? ""
-            
-            DispatchQueue.main.async {
-               // self.addressLabel.text = "\(streetNumber) \(streetName)"
-            }
         }
     }
     
@@ -216,14 +215,14 @@ extension ViewController: MKMapViewDelegate{
     
     // anotations
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-       
+        
         guard let annotation = annotation as? CustomAnnotation else { return nil }
-         let identifier = "AnnotationView"
-      var pin = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        let identifier = "AnnotationView"
+        var pin = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
         if pin == nil  {
             pin = CustomAnnotationView(annotation: annotation, reuseIdentifier: identifier) // CustomAnnotationView
-             pin!.image = UIImage(named: "bikes")
+            pin!.image = UIImage(named: "bikes")
             
         }
         else {
@@ -231,21 +230,21 @@ extension ViewController: MKMapViewDelegate{
         }
         
         let btn = UIButton()
-        btn.setTitle("Reserve", for: .normal)
+        btn.setTitle("Parking", for: .normal)
         btn.backgroundColor = UIColor.green
         btn.frame = CGRect(x: 0, y: 0, width: 90, height: 50)
         pin!.rightCalloutAccessoryView = btn
-       // btn.addTarget(self, action: #selector(ViewController.goToListWithBikes), for: .touchDown)
-        btn.addTarget(self, action: #selector(ViewController.goToListWithBikes), for: .touchDown)
+        // btn.addTarget(self, action: #selector(ViewController.goToListWithBikes), for: .touchDown)
+        btn.addTarget(self, action: #selector(MapStandsViewController.goToListWithBikes), for: .touchDown)
         
-       
+        
         //IMPORTANT
-          //pin?.canShowCallout = true; // this one is the default pop up of a callOut, currently a customized one is in work
+        //pin?.canShowCallout = true; // this one is the default pop up of a callOut, currently a customized one is in work
         
         //pin?.image =  UIImage(named: "bike")
         
         // Resize image
-        let pinImage = UIImage(named: "bikeAvatar")
+        let pinImage = UIImage(named: "bikeparking")
         let size = CGSize(width: 35, height: 25)
         UIGraphicsBeginImageContext(size)
         pinImage!.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
@@ -255,79 +254,9 @@ extension ViewController: MKMapViewDelegate{
         
         return pin
     }
-
     
-    func configureDetailView(annotationView: MKAnnotationView, bikePin: CustomAnnotation) {
-        
-        let width = 250
-        let widthImage = 200
-        let heightImage = 230
-        let height = 250
-        
-        let snapshotView = UIView()
-        let views = ["snapshotView": snapshotView]
-        snapshotView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[snapshotView(280)]", options: [], metrics: nil, views: views))
-        snapshotView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[snapshotView(250)]", options: [], metrics: nil, views: views))
-        
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 20, width: widthImage, height: heightImage - 40))
-        
-        // configure button1
-        let button1 = UIButton(frame: CGRect(x: 20, y: height - 25, width: width / 1 - 5, height:30)) // original 35, x moves the buttom from left to right and vice versa
-        button1.setTitle("Reserve", for: .normal)
     
-        button1.backgroundColor = UIColor.green
-        button1.layer.cornerRadius = 10
-        button1.layer.borderWidth = 1
-        button1.layer.borderColor = UIColor.black.cgColor
-        button1.addTarget(self, action: #selector(ViewController.goToListWithBikes), for: .touchDown)
-        
-        let lbAvailable = UILabel(frame: CGRect(x: 80, y: 1, width: 180, height: 13))
-        lbAvailable.textColor = .black
-        let nrOfAvailables = UILabel(frame:CGRect(x: 160, y: -30, width: 180, height: 13))
-        
-        
-        
-        let queue = DispatchQueue(label: "update")
-        
-        queue.async {
-            for s in self.fietshare.stands{
-                print(s.id)
-                print("Nr of bikes")
-                print(s.bikes.count)
-            }
-            // UPDATE UI after all calculations have been done
-            DispatchQueue.main.async {
-                lbAvailable.text = bikePin.title
-                nrOfAvailables.text = bikePin.subtitle
-            }
-            
-        }
-        let btnClose = UIButton(frame: CGRect(x:0 , y:0 , width: 30, height: 25))
-        btnClose.setTitle("X", for: .normal)
-        btnClose.backgroundColor = UIColor.darkGray
-        btnClose.addTarget(self, action: #selector(ViewController.close), for: .touchDown)
-        
-        let label1 = UILabel(frame: CGRect(x: 30, y: 10, width: 60, height: 15))
-        label1.text = "Bikes"
-        // configure image
-        let image = UIImage(named: "bikeAvatar")
-        imageView.image = image // implement your own logic
-        imageView.layer.cornerRadius = imageView.frame.size.height / 10
-        imageView.layer.masksToBounds = true
-        imageView.layer.borderWidth = 0
-        imageView.contentMode = UIView.ContentMode.scaleToFill
-       // imageView.
-        
-        // adding it to view
-        snapshotView.addSubview(imageView)
-        snapshotView.addSubview(button1)
-       // snapshotView.addSubview(lbAvailable)
-        snapshotView.addSubview(nrOfAvailables)
-       // snapshotView.addSubview(btnClose)
-        // snapshotView.addSubview(button2)
-        
-        annotationView.detailCalloutAccessoryView = snapshotView
-    }
+   
     @objc func close() {
         print("Annotation callOut closed") // your implementation(segues and etc)
         
@@ -335,12 +264,12 @@ extension ViewController: MKMapViewDelegate{
         {
             self.mapView.deselectAnnotation(annotation, animated: true)
         }
-       
+        
     }
     
     @objc func getListOfbikes() {
         print("list with bikes") // your implementation(segues and etc)
-         //performSegue(withIdentifier: "bikeList", sender: self)}
+        //performSegue(withIdentifier: "bikeList", sender: self)}
         
     }
     
@@ -356,70 +285,43 @@ extension ViewController: MKMapViewDelegate{
         let actionOk = UIAlertAction(title: "OK",
                                      style: .default,
                                      handler: {(alert: UIAlertAction!) in self.performSegue(withIdentifier: "bikesTableList", sender: self)})//You can use a block here to handle a press on this button
-      
+        
         alertController.addAction(actionCancel)
         alertController.addAction(actionOk)
         
-      //  actionOk.addTarget(self, action: #selector(ViewController.getListOfbikes()), for: .touchDown)
+        //  actionOk.addTarget(self, action: #selector(ViewController.getListOfbikes()), for: .touchDown)
         
         
         self.present(alertController, animated: true, completion: nil)
         
         
     }
-
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("mapView(_:annotationView:calloutAccessoryControlTapped)")
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
-        
-    
         let bikePin = view.annotation as! CustomAnnotation
         
         self.bikes = bikePin.bikes
-       // bikePin.title = "Avaiable Bikes"
-       // self.spotDetailsForSendToPostsStripController = bikePin.spotDetailsItem
+       
+        print("The anotation tit.e was selected!: \(String(describing: view.annotation?.title))")
+        //  print("The anotation was selected!: \(String(describing: pin?.title))")
         
-     //   configureDetailView(annotationView: view, bikePin: bikePin)
-      // adding the proper pop up
-        //
-       print("The anotation tit.e was selected!: \(String(describing: view.annotation?.title))")
-            //  print("The anotation was selected!: \(String(describing: pin?.title))")
+        print("The anotation subTitle was selected!: \(String(describing: view.annotation?.subtitle))")
+        print("The anotation coordinate was selected!: \(String(describing: view.annotation?.coordinate))")
         
-         print("The anotation subTitle was selected!: \(String(describing: view.annotation?.subtitle))")
-         print("The anotation coordinate was selected!: \(String(describing: view.annotation?.coordinate))")
-    
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if (segue.identifier == "bikesTableList"){
-            self.childContainerController = segue.destination as? BikesListTableViewController
-            self.childContainerController!.bikes = self.bikes
-            self.childContainerController!.fietshare.sessionActive = self.fietshare.sessionActive
-        }
-    }
+   
 }
 
-class CustomAnnotationView: MKPinAnnotationView {  // or nowadays, you might use MKMarkerAnnotationView
-    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
-        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-       // let button : UIButton = UIButton
-        canShowCallout = true
-        //leftCalloutAccessoryView = UIButton(type: .contactAdd)//UIButton(type: .custom)
-        //rightCalloutAccessoryView =  UIButton(type: .contactAdd)//UIButton(type: .custom)
-        //
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-}
-extension ViewController: ExampleCalloutViewDelegate {
+extension MapStandsViewController: ExampleCalloutViewDelegate {
     func mapView(_ mapView: MKMapView, didTapDetailsButton button: UIButton, for annotation: MKAnnotation) {
         print("mapView(_:didTapDetailsButton:for:)")
     }
 }
+
 
 

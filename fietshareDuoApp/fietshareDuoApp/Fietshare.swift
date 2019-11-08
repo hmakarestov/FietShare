@@ -11,6 +11,8 @@ import MapKit
 
 public class Fietshare{
     
+    var sessionActive = Bool ()
+    var bikesIn = [Bike] ()
     var stands = [Stand] ()
     var stand101 = Stand(id:101, nrOfSpots:15,latitude:51.4516,longtitude:5.4697)
     var stand102 = Stand(id:102, nrOfSpots:15,latitude:51.4616,longtitude:5.4997)
@@ -76,8 +78,18 @@ public class Fietshare{
  
     
     public func addAnnotation(mapView: MKMapView){
+        var bikePin : MKAnnotation
             for s in stands {
-                let bikePin  = CustomAnnotation(pinTitle:" Available Bikes: \(String(s.bikes.count))", pinSubTitle:" Distance: \(String(s.distance))M" , pinLocation: s.location )
+                if sessionActive {
+                    bikePin  = CustomAnnotation(pinTitle:" Available Spots: \(String(s.getNrOfAvailableSpots()))", pinSubTitle:" Distance: \(String(s.distance))M" , pinLocation: s.location, bikes:s.bikes)
+                    
+                }
+                else {
+                    bikePin  = CustomAnnotation(pinTitle:" Available Bikes: \(String(s.bikes.count))", pinSubTitle:" Distance: \(String(s.distance))M" , pinLocation: s.location, bikes:s.bikes)
+                    
+                }
+               
+             
               //  bikePin.title.
                 mapView.addAnnotation(bikePin)
                 mapView.selectAnnotation(bikePin, animated: true)

@@ -13,6 +13,8 @@
 		3F75258923590B8D009A5E91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F75258723590B8D009A5E91 /* LaunchScreen.storyboard */; };
 		3F75259123590D95009A5E91 /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F75259023590D95009A5E91 /* Info.storyboard */; };
 		3F75259323591012009A5E91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75259223591012009A5E91 /* ProfileViewController.swift */; };
+		3F99F1B723741D6500E91657 /* BikesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F99F1B623741D6500E91657 /* BikesListTableViewController.swift */; };
+		3F99F1BA237457AF00E91657 /* MapStandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F99F1B9237457AF00E91657 /* MapStandsViewController.swift */; };
 		3FADA421235CF63E0074B095 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADA420235CF63E0074B095 /* CustomAnnotation.swift */; };
 		3FADA423235D02C10074B095 /* Bike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADA422235D02C10074B095 /* Bike.swift */; };
 		3FADA427235D06380074B095 /* Fietshare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADA426235D06380074B095 /* Fietshare.swift */; };
@@ -35,6 +37,8 @@
 		3F75258A23590B8D009A5E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F75259023590D95009A5E91 /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		3F75259223591012009A5E91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3F99F1B623741D6500E91657 /* BikesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikesListTableViewController.swift; sourceTree = "<group>"; };
+		3F99F1B9237457AF00E91657 /* MapStandsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStandsViewController.swift; sourceTree = "<group>"; };
 		3FADA420235CF63E0074B095 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		3FADA422235D02C10074B095 /* Bike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bike.swift; sourceTree = "<group>"; };
 		3FADA426235D06380074B095 /* Fietshare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fietshare.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				3FF35517235FA9830072DDB6 /* CustomPinAnnotationView.swift */,
 				3FF355192360EF330072DDB6 /* ActiveSessionViewController.swift */,
 				3FF3551B23611E140072DDB6 /* LockBikeViewController.swift */,
+				3F99F1B623741D6500E91657 /* BikesListTableViewController.swift */,
+				3F99F1B9237457AF00E91657 /* MapStandsViewController.swift */,
 			);
 			path = fietshareDuoApp;
 			sourceTree = "<group>";
@@ -175,9 +181,11 @@
 			files = (
 				3FF3551A2360EF330072DDB6 /* ActiveSessionViewController.swift in Sources */,
 				3F75259323591012009A5E91 /* ProfileViewController.swift in Sources */,
+				3F99F1B723741D6500E91657 /* BikesListTableViewController.swift in Sources */,
 				3F75258123590B8C009A5E91 /* ViewController.swift in Sources */,
 				3FF3550E235F9E460072DDB6 /* PinView.swift in Sources */,
 				3FADA423235D02C10074B095 /* Bike.swift in Sources */,
+				3F99F1BA237457AF00E91657 /* MapStandsViewController.swift in Sources */,
 				3FF35518235FA9830072DDB6 /* CustomPinAnnotationView.swift in Sources */,
 				3FF35516235FA7F80072DDB6 /* ExampleCalloutView.swift in Sources */,
 				3FADA429235D2A890074B095 /* Stand.swift in Sources */,
@@ -330,14 +338,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q4Q4HDKLNB;
 				INFOPLIST_FILE = fietshareDuoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = maps.fietshareDuoApp;
+				PRODUCT_BUNDLE_IDENTIFIER = duoApp.fietshareDuoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -347,14 +358,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q4Q4HDKLNB;
 				INFOPLIST_FILE = fietshareDuoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = maps.fietshareDuoApp;
+				PRODUCT_BUNDLE_IDENTIFIER = duoApp.fietshareDuoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

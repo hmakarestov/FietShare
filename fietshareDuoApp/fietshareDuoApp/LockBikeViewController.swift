@@ -49,14 +49,16 @@ class LockBikeViewController: UIViewController {
                     
                     let actionOk = UIAlertAction(title: "OK",
                                                  style: .default,
-                                                 handler: { a in self.dismiss(animated: true) {
+                                                 handler : {a in self.performSegue(withIdentifier: "goToMap", sender: self)})
+                    
+                                            //     handler: { a in self.dismiss(animated: true) {
                                                     
-                                                    }
-                    })//You can use a block here to handle a press on this buttonblock here to handle a press on this button
+                                                 //   }
+                   // })//You can use a block here to handle a press on this buttonblock here to handle a press on this button
                     
                     //{(alert: UIAlertAction!) in self.performSegue(withIdentifier: "bikeList", sender: self)}
                     alertController.addAction(actionOk)
-                    
+                    fiets.sessionActive = false
                     //  actionOk.addTarget(self, action: #selector(ViewController.getListOfbikes()), for: .touchDown)
                     
                     
