@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F35FB6923744856003DF2A7 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FB6823744856003DF2A7 /* CameraController.swift */; };
+		3F35FB6B237448A8003DF2A7 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FB6A237448A8003DF2A7 /* PreviewController.swift */; };
+		3F4B2C152355F3040023790A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B2C142355F3040023790A /* AppDelegate.swift */; };
+		3F4B2C172355F3040023790A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B2C162355F3040023790A /* ViewController.swift */; };
+		3F4B2C1A2355F3040023790A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4B2C182355F3040023790A /* Main.storyboard */; };
+		3F4B2C1C2355F3050023790A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F4B2C1B2355F3050023790A /* Assets.xcassets */; };
+		3F4B2C1F2355F3050023790A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4B2C1D2355F3050023790A /* LaunchScreen.storyboard */; };
+		3F4B2C2A2355F3050023790A /* FietshareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B2C292355F3050023790A /* FietshareTests.swift */; };
+		3F4B2C352355F3050023790A /* FietshareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B2C342355F3050023790A /* FietshareUITests.swift */; };
+		3F6BC8102361B329007BC8EA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BC80F2361B329007BC8EA /* ProfileViewController.swift */; };
+		3F6BC8122361C299007BC8EA /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6BC8112361C299007BC8EA /* HelpViewController.swift */; };
+		3FBFE234236AE9B300E1EB9D /* ReportDamageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFE233236AE9B300E1EB9D /* ReportDamageViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F4B2C262355F3050023790A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F4B2C092355F3040023790A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F4B2C102355F3040023790A;
+			remoteInfo = Fietshare;
+		};
+		3F4B2C312355F3050023790A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F4B2C092355F3040023790A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F4B2C102355F3040023790A;
+			remoteInfo = Fietshare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3F35FB6823744856003DF2A7 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		3F35FB6A237448A8003DF2A7 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
+		3F4B2C112355F3040023790A /* Fietshare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fietshare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F4B2C142355F3040023790A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3F4B2C162355F3040023790A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F4B2C192355F3040023790A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3F4B2C1B2355F3050023790A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3F4B2C1E2355F3050023790A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3F4B2C202355F3050023790A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F4B2C252355F3050023790A /* FietshareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FietshareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F4B2C292355F3050023790A /* FietshareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FietshareTests.swift; sourceTree = "<group>"; };
+		3F4B2C2B2355F3050023790A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F4B2C302355F3050023790A /* FietshareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FietshareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F4B2C342355F3050023790A /* FietshareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FietshareUITests.swift; sourceTree = "<group>"; };
+		3F4B2C362355F3050023790A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F6BC80F2361B329007BC8EA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3F6BC8112361C299007BC8EA /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		3FBFE233236AE9B300E1EB9D /* ReportDamageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDamageViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F4B2C0E2355F3040023790A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F4B2C222355F3050023790A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F4B2C2D2355F3050023790A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F4B2C082355F3040023790A = {
+			isa = PBXGroup;
+			children = (
+				3F4B2C132355F3040023790A /* Fietshare */,
+				3F4B2C282355F3050023790A /* FietshareTests */,
+				3F4B2C332355F3050023790A /* FietshareUITests */,
+				3F4B2C122355F3040023790A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F4B2C122355F3040023790A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F4B2C112355F3040023790A /* Fietshare.app */,
+				3F4B2C252355F3050023790A /* FietshareTests.xctest */,
+				3F4B2C302355F3050023790A /* FietshareUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F4B2C132355F3040023790A /* Fietshare */ = {
+			isa = PBXGroup;
+			children = (
+				3F4B2C142355F3040023790A /* AppDelegate.swift */,
+				3F4B2C162355F3040023790A /* ViewController.swift */,
+				3F4B2C182355F3040023790A /* Main.storyboard */,
+				3F4B2C1B2355F3050023790A /* Assets.xcassets */,
+				3F4B2C1D2355F3050023790A /* LaunchScreen.storyboard */,
+				3F4B2C202355F3050023790A /* Info.plist */,
+				3F6BC80F2361B329007BC8EA /* ProfileViewController.swift */,
+				3F6BC8112361C299007BC8EA /* HelpViewController.swift */,
+				3FBFE233236AE9B300E1EB9D /* ReportDamageViewController.swift */,
+				3F35FB6823744856003DF2A7 /* CameraController.swift */,
+				3F35FB6A237448A8003DF2A7 /* PreviewController.swift */,
+			);
+			path = Fietshare;
+			sourceTree = "<group>";
+		};
+		3F4B2C282355F3050023790A /* FietshareTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F4B2C292355F3050023790A /* FietshareTests.swift */,
+				3F4B2C2B2355F3050023790A /* Info.plist */,
+			);
+			path = FietshareTests;
+			sourceTree = "<group>";
+		};
+		3F4B2C332355F3050023790A /* FietshareUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3F4B2C342355F3050023790A /* FietshareUITests.swift */,
+				3F4B2C362355F3050023790A /* Info.plist */,
+			);
+			path = FietshareUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F4B2C102355F3040023790A /* Fietshare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F4B2C392355F3050023790A /* Build configuration list for PBXNativeTarget "Fietshare" */;
+			buildPhases = (
+				3F4B2C0D2355F3040023790A /* Sources */,
+				3F4B2C0E2355F3040023790A /* Frameworks */,
+				3F4B2C0F2355F3040023790A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fietshare;
+			productName = Fietshare;
+			productReference = 3F4B2C112355F3040023790A /* Fietshare.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3F4B2C242355F3050023790A /* FietshareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F4B2C3C2355F3050023790A /* Build configuration list for PBXNativeTarget "FietshareTests" */;
+			buildPhases = (
+				3F4B2C212355F3050023790A /* Sources */,
+				3F4B2C222355F3050023790A /* Frameworks */,
+				3F4B2C232355F3050023790A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F4B2C272355F3050023790A /* PBXTargetDependency */,
+			);
+			name = FietshareTests;
+			productName = FietshareTests;
+			productReference = 3F4B2C252355F3050023790A /* FietshareTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3F4B2C2F2355F3050023790A /* FietshareUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F4B2C3F2355F3050023790A /* Build configuration list for PBXNativeTarget "FietshareUITests" */;
+			buildPhases = (
+				3F4B2C2C2355F3050023790A /* Sources */,
+				3F4B2C2D2355F3050023790A /* Frameworks */,
+				3F4B2C2E2355F3050023790A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F4B2C322355F3050023790A /* PBXTargetDependency */,
+			);
+			name = FietshareUITests;
+			productName = FietshareUITests;
+			productReference = 3F4B2C302355F3050023790A /* FietshareUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F4B2C092355F3040023790A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Student;
+				TargetAttributes = {
+					3F4B2C102355F3040023790A = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					3F4B2C242355F3050023790A = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 3F4B2C102355F3040023790A;
+					};
+					3F4B2C2F2355F3050023790A = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 3F4B2C102355F3040023790A;
+					};
+				};
+			};
+			buildConfigurationList = 3F4B2C0C2355F3040023790A /* Build configuration list for PBXProject "Fietshare" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3F4B2C082355F3040023790A;
+			productRefGroup = 3F4B2C122355F3040023790A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F4B2C102355F3040023790A /* Fietshare */,
+				3F4B2C242355F3050023790A /* FietshareTests */,
+				3F4B2C2F2355F3050023790A /* FietshareUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F4B2C0F2355F3040023790A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4B2C1F2355F3050023790A /* LaunchScreen.storyboard in Resources */,
+				3F4B2C1C2355F3050023790A /* Assets.xcassets in Resources */,
+				3F4B2C1A2355F3040023790A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F4B2C232355F3050023790A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F4B2C2E2355F3050023790A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F4B2C0D2355F3040023790A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F35FB6B237448A8003DF2A7 /* PreviewController.swift in Sources */,
+				3F4B2C172355F3040023790A /* ViewController.swift in Sources */,
+				3F35FB6923744856003DF2A7 /* CameraController.swift in Sources */,
+				3FBFE234236AE9B300E1EB9D /* ReportDamageViewController.swift in Sources */,
+				3F6BC8102361B329007BC8EA /* ProfileViewController.swift in Sources */,
+				3F4B2C152355F3040023790A /* AppDelegate.swift in Sources */,
+				3F6BC8122361C299007BC8EA /* HelpViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F4B2C212355F3050023790A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4B2C2A2355F3050023790A /* FietshareTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F4B2C2C2355F3050023790A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4B2C352355F3050023790A /* FietshareUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F4B2C272355F3050023790A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F4B2C102355F3040023790A /* Fietshare */;
+			targetProxy = 3F4B2C262355F3050023790A /* PBXContainerItemProxy */;
+		};
+		3F4B2C322355F3050023790A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F4B2C102355F3040023790A /* Fietshare */;
+			targetProxy = 3F4B2C312355F3050023790A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3F4B2C182355F3040023790A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F4B2C192355F3040023790A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3F4B2C1D2355F3050023790A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F4B2C1E2355F3050023790A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F4B2C372355F3050023790A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3F4B2C382355F3050023790A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F4B2C3A2355F3050023790A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G37Q43W7A5;
+				INFOPLIST_FILE = Fietshare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fontys.Fietshare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3F4B2C3B2355F3050023790A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G37Q43W7A5;
+				INFOPLIST_FILE = Fietshare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fontys.Fietshare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3F4B2C3D2355F3050023790A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FietshareTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fontys.FietshareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fietshare.app/Fietshare";
+			};
+			name = Debug;
+		};
+		3F4B2C3E2355F3050023790A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FietshareTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fontys.FietshareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fietshare.app/Fietshare";
+			};
+			name = Release;
+		};
+		3F4B2C402355F3050023790A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FietshareUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fontys.FietshareUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fietshare;
+			};
+			name = Debug;
+		};
+		3F4B2C412355F3050023790A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FietshareUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fontys.FietshareUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fietshare;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F4B2C0C2355F3040023790A /* Build configuration list for PBXProject "Fietshare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4B2C372355F3050023790A /* Debug */,
+				3F4B2C382355F3050023790A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F4B2C392355F3050023790A /* Build configuration list for PBXNativeTarget "Fietshare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4B2C3A2355F3050023790A /* Debug */,
+				3F4B2C3B2355F3050023790A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F4B2C3C2355F3050023790A /* Build configuration list for PBXNativeTarget "FietshareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4B2C3D2355F3050023790A /* Debug */,
+				3F4B2C3E2355F3050023790A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F4B2C3F2355F3050023790A /* Build configuration list for PBXNativeTarget "FietshareUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4B2C402355F3050023790A /* Debug */,
+				3F4B2C412355F3050023790A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F4B2C092355F3040023790A /* Project object */;
+}
