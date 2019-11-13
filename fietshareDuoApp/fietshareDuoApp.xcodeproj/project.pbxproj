@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1DFE47237B822600DE4C43 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DFE44237B822500DE4C43 /* HelpViewController.swift */; };
+		3F1DFE48237B822600DE4C43 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DFE45237B822500DE4C43 /* PreviewController.swift */; };
+		3F1DFE49237B822600DE4C43 /* ReportDamageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DFE46237B822500DE4C43 /* ReportDamageViewController.swift */; };
+		3F1DFE4B237B823E00DE4C43 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DFE4A237B823E00DE4C43 /* CameraController.swift */; };
+		3F1DFE4D237B993100DE4C43 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DFE4C237B993100DE4C43 /* TabBarController.swift */; };
 		3F75257F23590B8C009A5E91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75257E23590B8C009A5E91 /* AppDelegate.swift */; };
 		3F75258123590B8C009A5E91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75258023590B8C009A5E91 /* ViewController.swift */; };
 		3F75258423590B8C009A5E91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F75258223590B8C009A5E91 /* Main.storyboard */; };
@@ -29,6 +34,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F1DFE44237B822500DE4C43 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		3F1DFE45237B822500DE4C43 /* PreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
+		3F1DFE46237B822500DE4C43 /* ReportDamageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDamageViewController.swift; sourceTree = "<group>"; };
+		3F1DFE4A237B823E00DE4C43 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		3F1DFE4C237B993100DE4C43 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3F75257B23590B8C009A5E91 /* fietshareDuoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fietshareDuoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F75257E23590B8C009A5E91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F75258023590B8C009A5E91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +92,10 @@
 		3F75257D23590B8C009A5E91 /* fietshareDuoApp */ = {
 			isa = PBXGroup;
 			children = (
+				3F1DFE4A237B823E00DE4C43 /* CameraController.swift */,
+				3F1DFE44237B822500DE4C43 /* HelpViewController.swift */,
+				3F1DFE45237B822500DE4C43 /* PreviewController.swift */,
+				3F1DFE46237B822500DE4C43 /* ReportDamageViewController.swift */,
 				3F75259023590D95009A5E91 /* Info.storyboard */,
 				3F75259223591012009A5E91 /* ProfileViewController.swift */,
 				3F75257E23590B8C009A5E91 /* AppDelegate.swift */,
@@ -102,6 +116,7 @@
 				3FF3551B23611E140072DDB6 /* LockBikeViewController.swift */,
 				3F99F1B623741D6500E91657 /* BikesListTableViewController.swift */,
 				3F99F1B9237457AF00E91657 /* MapStandsViewController.swift */,
+				3F1DFE4C237B993100DE4C43 /* TabBarController.swift */,
 			);
 			path = fietshareDuoApp;
 			sourceTree = "<group>";
@@ -179,13 +194,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1DFE4B237B823E00DE4C43 /* CameraController.swift in Sources */,
 				3FF3551A2360EF330072DDB6 /* ActiveSessionViewController.swift in Sources */,
+				3F1DFE49237B822600DE4C43 /* ReportDamageViewController.swift in Sources */,
 				3F75259323591012009A5E91 /* ProfileViewController.swift in Sources */,
 				3F99F1B723741D6500E91657 /* BikesListTableViewController.swift in Sources */,
 				3F75258123590B8C009A5E91 /* ViewController.swift in Sources */,
+				3F1DFE47237B822600DE4C43 /* HelpViewController.swift in Sources */,
 				3FF3550E235F9E460072DDB6 /* PinView.swift in Sources */,
 				3FADA423235D02C10074B095 /* Bike.swift in Sources */,
 				3F99F1BA237457AF00E91657 /* MapStandsViewController.swift in Sources */,
+				3F1DFE4D237B993100DE4C43 /* TabBarController.swift in Sources */,
+				3F1DFE48237B822600DE4C43 /* PreviewController.swift in Sources */,
 				3FF35518235FA9830072DDB6 /* CustomPinAnnotationView.swift in Sources */,
 				3FF35516235FA7F80072DDB6 /* ExampleCalloutView.swift in Sources */,
 				3FADA429235D2A890074B095 /* Stand.swift in Sources */,

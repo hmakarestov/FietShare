@@ -10,7 +10,7 @@ import UIKit
 import MapKit //second
 import CoreLocation
 
-class MapStandsViewController: UIViewController {
+class MapStandsViewController: UIViewController,UITabBarDelegate,UINavigationBarDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
      var bikes = [Bike] ()
@@ -30,6 +30,28 @@ class MapStandsViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    func navigationBar(_ navigationBar: UINavigationBar,
+                       didPop item: UINavigationItem){
+        if item.title == "Stands" {
+            print("Going back")
+            
+            
+        }
+    }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        if item.title == "Map" {
+         //   performSegue(withIdentifier: "mapStands", sender: self)
+          //  fietsshare.sessionActive=true
+            print("BACK TO MAP")
+            
+        }
+          else if(item.title=="Profile")
+            {
+                print("PROFILE")
+            }
+        }
     
     func setupLocationManager() {
         locationManager.delegate = self
@@ -231,11 +253,11 @@ extension MapStandsViewController: MKMapViewDelegate{
         
         let btn = UIButton()
         btn.setTitle("Parking", for: .normal)
-        btn.backgroundColor = UIColor.green
+        btn.backgroundColor = UIColor.red
         btn.frame = CGRect(x: 0, y: 0, width: 90, height: 50)
         pin!.rightCalloutAccessoryView = btn
         // btn.addTarget(self, action: #selector(ViewController.goToListWithBikes), for: .touchDown)
-        btn.addTarget(self, action: #selector(MapStandsViewController.goToListWithBikes), for: .touchDown)
+       // btn.addTarget(self, action: #selector(MapStandsViewController.goToListWithBikes), for: .touchDown)
         
         
         //IMPORTANT
@@ -321,6 +343,8 @@ extension MapStandsViewController: ExampleCalloutViewDelegate {
     func mapView(_ mapView: MKMapView, didTapDetailsButton button: UIButton, for annotation: MKAnnotation) {
         print("mapView(_:didTapDetailsButton:for:)")
     }
+    
+    
 }
 
 

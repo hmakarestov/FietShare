@@ -31,10 +31,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let helpButton = UIButton(type: .infoLight)
+        helpButton.tintColor = UIColor.white
+        let rightBarButton = UIBarButtonItem(customView: helpButton)
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        helpButton.addTarget(self, action: #selector(ViewController.goToHelpPage), for: .touchDown)
         checkLocationServices()
         fietshare.sessionActive = false
         fietshare.addAnnotation(mapView: mapView)
+        
+      
        
+    }
+    
+    @objc func goToHelpPage() {
+       performSegue(withIdentifier: "goToHelp", sender: self)
+    
     }
     
 
@@ -395,6 +407,7 @@ extension ViewController: MKMapViewDelegate{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "bikesTableList"){
+            
             self.childContainerController = segue.destination as? BikesListTableViewController
             self.childContainerController!.bikes = self.bikes
             self.childContainerController!.fietshare.sessionActive = self.fietshare.sessionActive

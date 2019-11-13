@@ -8,11 +8,14 @@
 
 import UIKit
 
-class ActiveSessionViewController: UIViewController,UITabBarControllerDelegate  {
+class ActiveSessionViewController: UIViewController,UITabBarControllerDelegate,UITabBarDelegate  {
     @IBOutlet weak var lbTime: UILabel!
+    @IBOutlet weak var timeElapsedLabel: UILabel!
+    @IBOutlet weak var AmountLabel: UILabel!
+    @IBOutlet weak var textSessionLabel: UILabel!
+    @IBOutlet weak var bikeImageView: UIImageView!
     @IBOutlet weak var lbAmount: UILabel!
     @IBOutlet weak var btnUnclock: UIButton!
- 
     @IBOutlet weak var mapBackBtn: UITabBarItem!
     @IBOutlet weak var bikeId: UILabel!
     @IBOutlet weak var btnLock: UIButton!
@@ -32,10 +35,32 @@ class ActiveSessionViewController: UIViewController,UITabBarControllerDelegate  
         helpButton.tintColor = UIColor.white
         let rightBarButton = UIBarButtonItem(customView: helpButton)
         self.navigationItem.rightBarButtonItem = rightBarButton
-        
+          helpButton.addTarget(self, action: #selector(ViewController.goToHelpPage), for: .touchDown)
+       
         
         //to be fixed
         btnLock.isHidden = true
+        fietsshare.sessionActive=true
+        if fietsshare.sessionActive{
+            btnUnclock.isHidden=false
+            bikeId.isHidden=false
+            lbTime.isHidden = false
+            lbAmount.isHidden = false
+            AmountLabel.isHidden = false
+            timeElapsedLabel.isHidden = false
+            bikeImageView.isHidden = false
+            textSessionLabel.isHidden=true
+        }
+        else {
+        btnUnclock.isHidden=true
+        bikeId.isHidden = true
+        lbTime.isHidden = true
+        lbAmount.isHidden = true
+        AmountLabel.isHidden = true
+        timeElapsedLabel.isHidden = true
+        bikeImageView.isHidden = true
+        textSessionLabel.isHidden=false
+        }
         bikeId.text = String(id)
 
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
@@ -44,7 +69,10 @@ class ActiveSessionViewController: UIViewController,UITabBarControllerDelegate  
        //   performSegue(withIdentifier: "goBackToMap", sender: self)
     }
     
-    
+    @objc func goToHelpPage() {
+        performSegue(withIdentifier: "goToHelp", sender: self)
+        
+    }
     func hideButton(){
         // hide/undhide buttons and start timer
        btnUnclock.isHidden=true
@@ -138,7 +166,17 @@ class ActiveSessionViewController: UIViewController,UITabBarControllerDelegate  
         // Pass the selected object to the new view controller.
     }
     */
-    
-  
+      func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        if item.title == "Map" {
+             performSegue(withIdentifier: "mapStands", sender: self)
+             fietsshare.sessionActive=true
+            print("BACK TO MAP")
+        }
+        else if item.title=="Profile" {
+            print("PROFILE")
+        }
+    }
+     
 
 }

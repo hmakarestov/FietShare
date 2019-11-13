@@ -17,13 +17,21 @@ class BikesListTableViewController: UITableViewController {
     var fietshare = Fietshare ()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let helpButton = UIButton(type: .infoLight)
+        helpButton.tintColor = UIColor.white
+        let rightBarButton = UIBarButtonItem(customView: helpButton)
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        helpButton.addTarget(self, action: #selector(ViewController.goToHelpPage), for: .touchDown)
         ///fetch the pirate
         tableView.dataSource = self 
         
 }
 
     // MARK: - Table view data source
-
+    @objc func goToHelpPage() {
+        performSegue(withIdentifier: "goToHelp", sender: self)
+        
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1

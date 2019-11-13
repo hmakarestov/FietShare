@@ -45,29 +45,29 @@ public class Fietshare{
         stands.append(stand112)
         let number = Int.random(in: 0 ..< 100)
         for s in stands {
-            s.addBikeToStand(bike:Bike(id:number,name:"",latitude:s.latitude,longtitude:s.longtitude,available:true))
+            s.addBikeToStand(bike:Bike(id:number,name:"  0.20€/per minute",latitude:s.latitude,longtitude:s.longtitude,available:true))
         }
         
-        stand101.addBikeToStand(bike: Bike(id:1,name:"BikeToHeaven",latitude:51.4416,longtitude:5.4697,available:true))
-        stand101.addBikeToStand(bike: Bike(id:2,name:"BikeToHell",latitude:51.4616,longtitude:5.4997,available:true))
+        stand101.addBikeToStand(bike: Bike(id:1,name:"  0.20€/per minute",latitude:51.4416,longtitude:5.4697,available:true))
+        stand101.addBikeToStand(bike: Bike(id:2,name:"  0.20€/per minute",latitude:51.4616,longtitude:5.4997,available:true))
 
 
-        stand102.addBikeToStand(bike:Bike(id:3,name:"BikeToBulgaria",latitude:51.4345,longtitude:5.4397,available:true))
+        stand102.addBikeToStand(bike:Bike(id:3,name:"  0.20€/per minute",latitude:51.4345,longtitude:5.4397,available:true))
        
-        stand103.addBikeToStand(bike: Bike(id:4,name:"Sparta",latitude:51.4316,longtitude:5.4697,available:false))
-        stand103.addBikeToStand(bike: Bike(id:5,name:"Athene",latitude:51.4116,longtitude:5.4997,available:true))
+        stand103.addBikeToStand(bike: Bike(id:4,name:"  0.20€/per minute",latitude:51.4316,longtitude:5.4697,available:false))
+        stand103.addBikeToStand(bike: Bike(id:5,name:"  0.20€/per minute",latitude:51.4116,longtitude:5.4997,available:true))
        
-        stand104.addBikeToStand(bike: Bike(id:6,name:"Loner",latitude:51.4945,longtitude:5.4397,available:true))
+        stand104.addBikeToStand(bike: Bike(id:6,name:"  0.20€/per minute",latitude:51.4945,longtitude:5.4397,available:true))
         
-        stand105.addBikeToStand(bike:Bike(id:7,name:"Wolf",latitude:51.4216,longtitude:5.4597,available:false))
-        stand105.addBikeToStand(bike:Bike(id:8,name:"De circel",latitude:51.4466,longtitude:5.4797,available:true))
-        stand105.addBikeToStand(bike: Bike(id:9,name:"Het vierkant",latitude:51.4445,longtitude:5.4327,available:true))
+        stand105.addBikeToStand(bike:Bike(id:7,name:"  0.20€/per minute",latitude:51.4216,longtitude:5.4597,available:false))
+        stand105.addBikeToStand(bike:Bike(id:8,name:"  0.20€/per minute",latitude:51.4466,longtitude:5.4797,available:true))
+        stand105.addBikeToStand(bike: Bike(id:9,name:"  0.20€/per minute",latitude:51.4445,longtitude:5.4327,available:true))
         
-        stand106.addBikeToStand(bike: Bike(id:10,name:"De driehoek",latitude:51.4716,longtitude:5.4637,available:true))
+        stand106.addBikeToStand(bike: Bike(id:10,name:"  0.20€/per minute",latitude:51.4716,longtitude:5.4637,available:true))
         
-        stand107.addBikeToStand(bike: Bike(id:11,name:"De baas ",latitude:51.4696,longtitude:5.4957,available:true))
+        stand107.addBikeToStand(bike: Bike(id:11,name:"  0.20€/per minute",latitude:51.4696,longtitude:5.4957,available:true))
        
-        stand108.addBikeToStand(bike: Bike(id:12,name:"St Zag",latitude:51.4375,longtitude:5.4367,available:true))
+        stand108.addBikeToStand(bike: Bike(id:12,name:"0.20€/per minute",latitude:51.4375,longtitude:5.4367,available:true))
        
 
 
