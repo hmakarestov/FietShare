@@ -18,6 +18,7 @@ class ActiveSessionViewController: UIViewController,UITabBarControllerDelegate,U
     @IBOutlet weak var btnUnclock: UIButton!
     @IBOutlet weak var mapBackBtn: UITabBarItem!
     @IBOutlet weak var bikeId: UILabel!
+   
     @IBOutlet weak var btnLock: UIButton!
      private var childContainerController:ViewController?
     var id = String ()
@@ -35,7 +36,7 @@ class ActiveSessionViewController: UIViewController,UITabBarControllerDelegate,U
         helpButton.tintColor = UIColor.white
         let rightBarButton = UIBarButtonItem(customView: helpButton)
         self.navigationItem.rightBarButtonItem = rightBarButton
-          helpButton.addTarget(self, action: #selector(ViewController.goToHelpPage), for: .touchDown)
+          helpButton.addTarget(self, action: #selector(ActiveSessionViewController.goToHelpPage), for: .touchDown)
        
         
         //to be fixed
@@ -85,7 +86,7 @@ class ActiveSessionViewController: UIViewController,UITabBarControllerDelegate,U
         bikeImageView.isHidden = true
         textSessionLabel.isHidden=false
         }
-        bikeId.text = String(id)
+        bikeId.text = "Bike ID: \(String(id))"
 
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
         fietsshare.sessionActive=true

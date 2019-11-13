@@ -24,11 +24,22 @@ class MapStandsViewController: UIViewController,UITabBarDelegate,UINavigationBar
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let helpButton = UIButton(type: .infoLight)
+        helpButton.tintColor = UIColor.white
+        let rightBarButton = UIBarButtonItem(customView: helpButton)
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        helpButton.addTarget(self, action: #selector(MapStandsViewController.goToHelpPage), for: .touchDown)
         checkLocationServices()
         fietshare.sessionActive = true
         fietshare.addAnnotation(mapView: mapView)
         
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func goToHelpPage() {
+        performSegue(withIdentifier: "goToHelp", sender: self)
+        
     }
     func navigationBar(_ navigationBar: UINavigationBar,
                        didPop item: UINavigationItem){
@@ -50,6 +61,7 @@ class MapStandsViewController: UIViewController,UITabBarDelegate,UINavigationBar
           else if(item.title=="Profile")
             {
                 print("PROFILE")
+                performSegue(withIdentifier: "goProfile", sender:self)
             }
         }
     

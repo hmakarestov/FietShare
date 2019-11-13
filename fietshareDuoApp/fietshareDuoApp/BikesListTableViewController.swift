@@ -91,11 +91,12 @@ class BikesListTableViewController: UITableViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if (segue.identifier == "activeSession"){
-            self.childContainerController = segue.destination as? ActiveSessionViewController
-            self.childContainerController!.id = self.id
-            self.childContainerController!.fietsshare.sessionActive = self.fietshare.sessionActive
-        }
+        
+        let navVC = segue.destination as! UINavigationController
+        
+        let tableVC = navVC.viewControllers.first as! ActiveSessionViewController
+        
+        tableVC.id = self.id
     }
 
     /*
