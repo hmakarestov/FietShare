@@ -253,7 +253,7 @@ extension MapStandsViewController: MKMapViewDelegate{
         
         let btn = UIButton()
         btn.setTitle("Parking", for: .normal)
-        btn.backgroundColor = UIColor.red
+        btn.backgroundColor = UIColor(red:0.69, green:0.15, blue:0.15, alpha:1.0);
         btn.frame = CGRect(x: 0, y: 0, width: 90, height: 50)
         pin!.rightCalloutAccessoryView = btn
         // btn.addTarget(self, action: #selector(ViewController.goToListWithBikes), for: .touchDown)

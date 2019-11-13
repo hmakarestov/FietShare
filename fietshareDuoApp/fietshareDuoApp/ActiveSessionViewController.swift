@@ -41,6 +41,30 @@ class ActiveSessionViewController: UIViewController,UITabBarControllerDelegate,U
         //to be fixed
         btnLock.isHidden = true
         fietsshare.sessionActive=true
+        
+        btnUnclock.setTitle("Unlock", for: .normal)
+        btnUnclock.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        btnUnclock.backgroundColor=UIColor(red:0.01, green:0.50, blue:0.00, alpha:1.0);
+        btnUnclock.setTitleColor(UIColor.white, for: .normal)
+        btnUnclock.layer.cornerRadius=btnUnclock.frame.height/2;
+        btnUnclock.layer.shadowColor=UIColor.black.cgColor;
+        btnUnclock.layer.shadowRadius=7;
+        btnUnclock.layer.shadowOpacity=0.5;
+        btnUnclock.layer.shadowOffset=CGSize(width: 0, height: 0);
+        btnUnclock.contentHorizontalAlignment = .center;
+        
+        
+        btnLock.setTitle("Lock", for: .normal)
+        btnLock.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        btnLock.backgroundColor=UIColor(red:0.69, green:0.15, blue:0.15, alpha:1.0);
+        btnLock.setTitleColor(UIColor.white, for: .normal)
+        btnLock.layer.cornerRadius=btnLock.frame.height/2;
+        btnLock.layer.shadowColor=UIColor.black.cgColor;
+        btnLock.layer.shadowRadius=7;
+        btnLock.layer.shadowOpacity=0.5;
+        btnLock.layer.shadowOffset=CGSize(width: 0, height: 0);
+        btnLock.contentHorizontalAlignment = .center;
+        
         if fietsshare.sessionActive{
             btnUnclock.isHidden=false
             bikeId.isHidden=false

@@ -58,7 +58,7 @@ class BikesListTableViewController: UITableViewController {
         let btn = UIButton()
         btn.setTitle("Reserve bike", for: .normal)
         btn.titleLabel!.textAlignment = .center
-        btn.backgroundColor = UIColor.green
+        btn.backgroundColor = UIColor(red:0.01, green:0.50, blue:0.00, alpha:1.0);
         btn.frame = CGRect(x: 290, y: 0, width: 130, height: 60)
         btn.addTarget(self, action: #selector(BikesListTableViewController.goToListWithBikes), for: .touchDown)
       //  btn.

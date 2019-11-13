@@ -210,7 +210,19 @@ class ReportDamageViewController: UIViewController {
     }
     
     @IBAction func onClickSubmit(_ sender: Any) {
-        dismiss(animated: true, completion: nil);
+        let alertController = UIAlertController(title: "Your report has been submitted.", message: "We received your damage report and will try to fix it as soon as possible.", preferredStyle: .actionSheet)
+        
+        let actionOk = UIAlertAction(title: "OK",
+                                     style: .default,
+                                     handler: {(alert: UIAlertAction!) in self.performSegue(withIdentifier: "submitSegue", sender: self)})//You can use a block here to handle a press on this button
+        
+        alertController.addAction(actionOk)
+        
+      
+        
+        
+        self.present(alertController, animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil);
     }
     
     @IBAction func onClickTakePicture(_ sender: Any) {

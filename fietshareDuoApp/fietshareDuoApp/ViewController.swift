@@ -244,7 +244,7 @@ extension ViewController: MKMapViewDelegate{
         
         let btn = UIButton()
         btn.setTitle("Reserve", for: .normal)
-        btn.backgroundColor = UIColor.green
+        btn.backgroundColor = UIColor(red:0.01, green:0.50, blue:0.00, alpha:1.0)
         btn.frame = CGRect(x: 0, y: 0, width: 90, height: 50)
         pin!.rightCalloutAccessoryView = btn
        // btn.addTarget(self, action: #selector(ViewController.goToListWithBikes), for: .touchDown)
