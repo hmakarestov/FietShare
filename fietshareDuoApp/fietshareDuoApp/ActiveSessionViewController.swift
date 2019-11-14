@@ -14,6 +14,7 @@ class ActiveSessionViewController: UIViewController,UITabBarControllerDelegate,U
     @IBOutlet weak var AmountLabel: UILabel!
     @IBOutlet weak var textSessionLabel: UILabel!
     @IBOutlet weak var bikeImageView: UIImageView!
+  
     @IBOutlet weak var lbAmount: UILabel!
     @IBOutlet weak var btnUnclock: UIButton!
     @IBOutlet weak var mapBackBtn: UITabBarItem!

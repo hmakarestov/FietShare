@@ -276,7 +276,7 @@
                         <outlet property="bikeImageView" destination="d5A-On-eMb" id="tpa-pg-Jsb"/>
                         <outlet property="btnLock" destination="gJF-Gg-jo1" id="Gwg-68-WwV"/>
                         <outlet property="btnUnclock" destination="eGl-qF-6Kb" id="vJd-EN-Hve"/>
-                        <outlet property="lbAmount" destination="23Q-i7-n9U" id="L8a-FR-1Kh"/>
+                        <outlet property="lbAmount" destination="vqU-ZX-cgX" id="SAO-gf-cck"/>
                         <outlet property="lbTime" destination="IgQ-mg-quZ" id="IGI-Yu-BZu"/>
                         <outlet property="textSessionLabel" destination="dCT-1B-hbU" id="s52-wJ-OUI"/>
                         <outlet property="timeElapsedLabel" destination="23Q-i7-n9U" id="z6X-wk-1XU"/>
@@ -304,16 +304,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWf-xh-Ghe">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWf-xh-Ghe">
+                                <rect key="frame" x="142" y="318.5" width="91" height="30"/>
+                                <state key="normal" title="Lock in stand"/>
                                 <connections>
                                     <action selector="sendNumberOfBike:" destination="EE7-xo-1ew" eventType="touchUpInside" id="Lol-DB-md7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GWf-xh-Ghe" firstAttribute="centerY" secondItem="kuF-gm-yeM" secondAttribute="centerY" id="PFn-D7-GKW"/>
+                            <constraint firstItem="GWf-xh-Ghe" firstAttribute="centerX" secondItem="kuF-gm-yeM" secondAttribute="centerX" id="cjj-C0-6rv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MCM-m5-zh3"/>
                     </view>
                     <connections>
@@ -2631,7 +2634,7 @@ AAAAAAAAbQAAAAAAAAAAAAAAAAABV0M
         <image name="update 24" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RpW-dJ-yhP"/>
+        <segue reference="0D4-4r-oP5"/>
         <segue reference="Qbs-am-IFU"/>
     </inferredMetricsTieBreakers>
 </document>
