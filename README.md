@@ -1,1 +1,1 @@
-Smart Mobile iOS project.
+Fietshare is an iOS mobile application that provides its users with the functionality to see nearby bikes and rent one they prefer. The app is capable of showing a map with current location of the user and pin points of all bikes nearby. The is able to rent a bike from a prefered location and leave the bike to another location. An important feature of the app is the possibility for the user to monitor the current session ( when a bike is being used ) and see what is the current price and the distance to reach the bike location.
